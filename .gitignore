@@ -7,5 +7,11 @@ out
 *.tsbuildinfo
 *.png
 !src/assets/*.png
-public/
+!src/assets/newsletters/
+!src/assets/newsletters/*.png
+public/*
+!public/newsletters/
+public/newsletters/*
+!public/newsletters/*.pdf
+/newsletters/
 .claude/settings.local.json

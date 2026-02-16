@@ -180,7 +180,7 @@ export function NewslettersArchive() {
                 <Button
                   variant="outline"
                   onClick={handleClearFilters}
-                  className="w-full border-white/15 text-white/70 hover:bg-white/5 hover:text-white h-12"
+                  className="w-full h-12 border-white/30 bg-[var(--surface-4)] text-white hover:bg-[var(--surface-3)] hover:text-white"
                   style={{
                     fontFamily: "var(--font-condensed)",
                     fontSize: "0.8125rem",
@@ -205,11 +205,11 @@ export function NewslettersArchive() {
         </div>
 
         {filteredNewsletters.length > 0 ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
             {filteredNewsletters.map((newsletter) => (
               <Card
                 key={newsletter.slug}
-                className="overflow-hidden border-0 bg-[var(--surface-3)] hover:bg-[var(--surface-4)] transition-all duration-300 group"
+                className="group h-full overflow-hidden border border-white/10 bg-[var(--surface-3)] transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_24px_44px_rgba(0,0,0,0.45)]"
               >
                 <Link href={`/newsletters/${newsletter.slug}`}>
                   <div className="relative aspect-[3/4] overflow-hidden bg-[var(--surface-4)]">
@@ -218,7 +218,15 @@ export function NewslettersArchive() {
                       alt={`${formatPublishedDate(newsletter.publishedAt)} newsletter`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
+                    <div className="absolute top-4 left-4">
+                      <span
+                        className="section-label bg-black/45 border border-white/20 text-white px-2.5 py-1 rounded-full"
+                        style={{ fontSize: "0.625rem" }}
+                      >
+                        NEWSLETTER
+                      </span>
+                    </div>
 
                     <div className="absolute bottom-0 left-0 right-0 p-6">
                       <div className="flex items-center gap-2 text-[var(--etg-red)] mb-2">
@@ -242,24 +250,24 @@ export function NewslettersArchive() {
                   </div>
                 </Link>
 
-                <div className="p-5 bg-[var(--surface-2)]">
+                <div className="p-5 bg-[var(--surface-2)] border-t border-white/10 flex flex-col">
                   <p
-                    className="text-white/45 mb-4"
+                    className="text-white/55 mb-5"
                     style={{
                       fontFamily: "var(--font-body)",
-                      fontSize: "0.8125rem",
+                      fontSize: "0.875rem",
                       lineHeight: 1.6,
                       fontWeight: 300,
                     }}
                   >
                     {newsletter.excerpt}
                   </p>
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 mt-auto">
                     <Button
                       asChild
                       size="sm"
                       variant="outline"
-                      className="border-white/15 text-white/70 hover:bg-white/5 hover:text-white flex-1"
+                      className="flex-1 border-white/30 bg-[var(--surface-4)] text-white hover:bg-[var(--surface-3)] hover:text-white"
                       style={{
                         fontFamily: "var(--font-condensed)",
                         fontSize: "0.75rem",
@@ -274,7 +282,7 @@ export function NewslettersArchive() {
                         asChild
                         size="sm"
                         variant="outline"
-                        className="border-white/15 text-white/70 hover:bg-white/5 hover:text-white"
+                        className="border-white/30 bg-[var(--surface-4)] text-white hover:bg-[var(--surface-3)] hover:text-white"
                       >
                         <a href={newsletter.pdfUrl} target="_blank" rel="noreferrer" aria-label="Download PDF">
                           <Download className="w-3.5 h-3.5" />

@@ -1,5 +1,7 @@
 import type { StaticImageData } from "next/image";
-import newsletterPreview from "@/assets/newsletter-preview.png";
+import august2025Cover from "@/assets/newsletters/august-2025-cover.png";
+import december2025Cover from "@/assets/newsletters/december-2025-cover.png";
+import february2026Cover from "@/assets/newsletters/february-2026-cover.png";
 
 export type NewsletterPost = {
   slug: string;
@@ -16,17 +18,16 @@ export const newsletterPosts: NewsletterPost[] = [
   {
     slug: "february-2026-help-etg-build-tomorrows-leaders",
     title: "Everything To Gain",
-    subtitle: "February 2026 - Help ETG Build Tomorrow's Leaders",
+    subtitle: "February 2026 - Alumni Spotlight and In-Season Reflections",
     excerpt:
-      "The February edition highlights spring and summer team plans and outlines how donor support helps fund flights, hotels, vans, and meals for athletes.",
-    publishedAt: "2026-02-20",
-    image: newsletterPreview,
-    pdfUrl:
-      "https://cdn.prod.website-files.com/63e1902437bdfc4cd77ce3f6/67b7ca1006fa159777965674_Everything%20to%20Gain%20February%20Newsletter.pdf",
+      "Coach Woodard reflects on the season and highlights alumni journeys, including Kelsey Woodard (Davis) and Sam Griesel.",
+    publishedAt: "2026-02-01",
+    image: february2026Cover,
+    pdfUrl: "/newsletters/etg-newsletter-february-2026.pdf",
     content: [
-      "ETG's mission is to create opportunities for local high school athletes to compete at a high level and gain scholarship exposure.",
-      "This issue explains how transportation, lodging, and meal support directly impact players and their families during the season.",
-      "Supporters are invited to participate in spring fundraising efforts that sustain boys and girls programming across all age groups.",
+      "The February issue captures Coach Woodard's perspective as the 2025-2026 season enters its final stretch.",
+      "Featured alumni spotlights reinforce how discipline and consistency during Crusader years translate to long-term growth.",
+      "Families and supporters are encouraged to stay connected as players prepare for spring and summer competition opportunities.",
     ],
   },
   {
@@ -34,79 +35,29 @@ export const newsletterPosts: NewsletterPost[] = [
     title: "Everything To Gain",
     subtitle: "December 2025 - Lessons That Last a Lifetime",
     excerpt:
-      "Holiday reflections from Coach Woodard and stories from alumni showing how Crusader values translate into meaningful careers.",
+      "Holiday reflections from Coach Woodard and alumni updates showing how Crusader values continue shaping family and professional life.",
     publishedAt: "2025-12-06",
-    image: newsletterPreview,
-    pdfUrl:
-      "https://cdn.prod.website-files.com/63e1902437bdfc4cd77ce3f6/675233ed30df1f66f7088ded_Everything%20to%20Gain%20December%20Newsletter.pdf",
+    image: december2025Cover,
+    pdfUrl: "/newsletters/etg-newsletter-december-2025.pdf",
     content: [
-      "The December issue celebrates alumni progress and the long-term outcomes created by accountability, teamwork, and discipline.",
-      "Featured stories highlight former players serving in business, medicine, and nonprofit leadership roles across the region.",
-      "The program closes the year by emphasizing gratitude and mentorship for the next generation of ETG athletes.",
-    ],
-  },
-  {
-    slug: "october-2025-where-champions-go-next",
-    title: "Everything To Gain",
-    subtitle: "October 2025 - Where Champions Go Next",
-    excerpt:
-      "Fall update on ETG's inaugural youth tournament and alumni who continue to set the standard after their playing careers.",
-    publishedAt: "2025-10-11",
-    image: newsletterPreview,
-    pdfUrl:
-      "https://cdn.prod.website-files.com/63e1902437bdfc4cd77ce3f6/6709f56f13f8438275f16f6b_Everything%20to%20Gain%20October%20Newsletter.pdf",
-    content: [
-      "October spotlights athletes competing for scholarships and performing on bigger stages during the fall cycle.",
-      "The newsletter introduces ETG's December youth event at Iowa West Fieldhouse.",
-      "Alumni stories continue to reinforce the program's core belief that growth extends well beyond basketball.",
+      "This edition highlights the alumni network's breadth and the impact of lessons learned through Crusader competition and mentorship.",
+      "Coach Woodard shares gratitude for families and supporters while encouraging alumni to stay engaged with current athletes.",
+      "December closes with a strong emphasis on character, accountability, and giving back across generations.",
     ],
   },
   {
     slug: "august-2025-alumni-spotlight",
     title: "Everything To Gain",
-    subtitle: "August 2025 - ETG Crusaders Alumni Newsletter",
+    subtitle: "August 2025 - Summer Recap and Alumni Spotlights",
     excerpt:
-      "Late-summer recap featuring alumni achievements and updates on program momentum heading into the fall.",
-    publishedAt: "2025-08-07",
-    image: newsletterPreview,
-    pdfUrl:
-      "https://cdn.prod.website-files.com/63e1902437bdfc4cd77ce3f6/6894f26ca06ec73ca0f0ce07_Everything%20to%20Gain%20August%20Newsletter.pdf",
+      "An August update recapping summer team progress and featuring alumni spotlights from Andy King and Kelsey Newman (Schlitz).",
+    publishedAt: "2025-08-01",
+    image: august2025Cover,
+    pdfUrl: "/newsletters/etg-newsletter-august-2025.pdf",
     content: [
-      "The August edition captures offseason growth, donor impact, and preparation priorities for the next competition cycle.",
-      "ETG leadership shares updates on operations and continued investment in athlete development pathways.",
-      "Families and alumni are encouraged to stay involved as teams transition into fall training windows.",
-    ],
-  },
-  {
-    slug: "june-2025-etg-crusaders-alumni-newsletter",
-    title: "Everything To Gain",
-    subtitle: "June 2025 - ETG Crusaders Alumni Newsletter",
-    excerpt:
-      "Program anniversary updates, summer camp announcements, and a look at the Crusaders mission since 1993.",
-    publishedAt: "2025-06-13",
-    image: newsletterPreview,
-    pdfUrl:
-      "https://cdn.prod.website-files.com/63e1902437bdfc4cd77ce3f6/684c4e8dbdd22d6ec4bfba86_Everything%20to%20Gain%20June%20Newsletter.pdf",
-    content: [
-      "June reflects on the Omaha Crusaders foundation and the program's evolution into ETG Midwest.",
-      "The issue includes summer camp updates and progress from both boys and girls teams.",
-      "Alumni support remains central to funding travel and competitive opportunities for current players.",
-    ],
-  },
-  {
-    slug: "april-2025-etg-crusaders-alumni-newsletter",
-    title: "Everything To Gain",
-    subtitle: "April 2025 - ETG Crusaders Alumni Newsletter",
-    excerpt:
-      "Schedule release for boys and girls teams plus spring fundraising events supporting the annual program budget.",
-    publishedAt: "2025-04-17",
-    image: newsletterPreview,
-    pdfUrl:
-      "https://cdn.prod.website-files.com/63e1902437bdfc4cd77ce3f6/6801351c233f1ff52ee88cc8_Everything%20to%20Gain%20April%20Newsletter.pdf",
-    content: [
-      "April's issue outlines a full travel and tournament plan needed for shoe-circuit-level competition.",
-      "The newsletter promotes key fundraising events, including the Dinner Bash and community support initiatives.",
-      "ETG emphasizes that donor participation directly expands access and exposure for student-athletes.",
+      "The August issue opens with a recap of summer outcomes for both boys and girls ETG Crusader teams.",
+      "Two alumni spotlight stories provide perspective on recruiting, leadership, and life after playing years.",
+      "The newsletter invites continued alumni support to expand opportunities and resources for current athletes.",
     ],
   },
 ];
