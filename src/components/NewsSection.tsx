@@ -9,6 +9,7 @@ import { Card } from "./ui/card";
 function formatPublishedDate(date: string) {
   return new Date(date).toLocaleDateString("en-US", {
     month: "long",
+    day: "numeric",
     year: "numeric",
   });
 }
@@ -32,12 +33,12 @@ export function NewsSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div ref={headerRef} className="reveal mb-16">
-          <p className="section-label mb-3">Latest Updates</p>
+          <p className="section-label mb-3">Everything To Gain</p>
           <h2
             className="section-title text-white"
             style={{ fontSize: "clamp(2.2rem, 4vw, 3.2rem)" }}
           >
-            Monthly Newsletters
+            Program Newsletters
           </h2>
           <p
             className="text-white/50 mt-4 max-w-2xl"
@@ -48,8 +49,8 @@ export function NewsSection() {
               fontWeight: 300,
             }}
           >
-            Stay informed with our monthly newsletter featuring team updates,
-            player spotlights, and program highlights.
+            Read the latest ETG updates, alumni stories, and fundraising progress.
+            Each issue is available as a downloadable PDF.
           </p>
         </div>
 
@@ -125,21 +126,25 @@ export function NewsSection() {
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Link>
                   </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border border-white/15 text-white/70 hover:bg-white/5 hover:text-white"
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontSize: "0.8125rem",
-                      fontWeight: 600,
-                      letterSpacing: "0.08em",
-                    }}
-                    type="button"
-                  >
-                    <Download className="w-4 h-4 mr-2" />
-                    PDF COMING SOON
-                  </Button>
+                  {featured.pdfUrl ? (
+                    <Button
+                      asChild
+                      size="lg"
+                      variant="outline"
+                      className="border border-white/15 text-white/70 hover:bg-white/5 hover:text-white"
+                      style={{
+                        fontFamily: "var(--font-display)",
+                        fontSize: "0.8125rem",
+                        fontWeight: 600,
+                        letterSpacing: "0.08em",
+                      }}
+                    >
+                      <a href={featured.pdfUrl} target="_blank" rel="noreferrer">
+                        <Download className="w-4 h-4 mr-2" />
+                        DOWNLOAD PDF
+                      </a>
+                    </Button>
+                  ) : null}
                 </div>
               </div>
             </div>
@@ -149,7 +154,7 @@ export function NewsSection() {
         <div ref={archiveRef} className="reveal">
           <div className="flex items-center justify-between mb-8">
             <h3 className="section-title text-white" style={{ fontSize: "1.3rem" }}>
-              Previous Issues
+              Recent Issues
             </h3>
             <Button
               asChild
@@ -183,34 +188,36 @@ export function NewsSection() {
                         : "none",
                 }}
               >
-                <div className="relative aspect-[3/4] overflow-hidden bg-[var(--surface-4)]">
-                  <Image
-                    src={newsletter.image}
-                    alt={`${formatPublishedDate(newsletter.publishedAt)} newsletter`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                <Link href={`/newsletters/${newsletter.slug}`}>
+                  <div className="relative aspect-[3/4] overflow-hidden bg-[var(--surface-4)]">
+                    <Image
+                      src={newsletter.image}
+                      alt={`${formatPublishedDate(newsletter.publishedAt)} newsletter`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="flex items-center gap-2 text-[var(--etg-red)] mb-2">
-                      <Calendar className="w-3.5 h-3.5" />
-                      <span className="section-label" style={{ fontSize: "0.6875rem" }}>
-                        {formatPublishedDate(newsletter.publishedAt)}
-                      </span>
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <div className="flex items-center gap-2 text-[var(--etg-red)] mb-2">
+                        <Calendar className="w-3.5 h-3.5" />
+                        <span className="section-label" style={{ fontSize: "0.6875rem" }}>
+                          {formatPublishedDate(newsletter.publishedAt)}
+                        </span>
+                      </div>
+                      <h4
+                        className="text-white"
+                        style={{
+                          fontFamily: "var(--font-body)",
+                          fontSize: "1rem",
+                          fontWeight: 600,
+                          lineHeight: 1.3,
+                        }}
+                      >
+                        {newsletter.subtitle}
+                      </h4>
                     </div>
-                    <h4
-                      className="text-white"
-                      style={{
-                        fontFamily: "var(--font-body)",
-                        fontSize: "1rem",
-                        fontWeight: 600,
-                        lineHeight: 1.3,
-                      }}
-                    >
-                      {newsletter.subtitle}
-                    </h4>
                   </div>
-                </div>
+                </Link>
 
                 <div className="p-5 bg-[var(--surface-2)]">
                   <p

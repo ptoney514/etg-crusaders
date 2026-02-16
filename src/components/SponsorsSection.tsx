@@ -1,94 +1,108 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-const sponsors = [
+const seasonNotes = [
   {
-    name: "Crusaders Elite",
-    logo: (
-      <svg viewBox="0 0 120 120" className="w-16 h-16">
-        <circle cx="60" cy="60" r="55" fill="#4A1E8C" stroke="#FFD700" strokeWidth="3"/>
-        <path d="M 40 40 L 60 30 L 80 40 L 80 70 L 60 80 L 40 70 Z" fill="#FFD700"/>
-        <text x="60" y="65" textAnchor="middle" fill="#4A1E8C" fontSize="24" fontWeight="bold">CE</text>
-      </svg>
-    ),
+    title: "National Competition",
+    detail: "Boys and girls teams compete on major spring and summer circuits.",
   },
   {
-    name: "Elite Training",
-    logo: (
-      <svg viewBox="0 0 120 120" className="w-16 h-16">
-        <circle cx="60" cy="60" r="55" fill="#1a1a1a" stroke="#FFFFFF" strokeWidth="3"/>
-        <circle cx="60" cy="60" r="45" fill="none" stroke="#FFFFFF" strokeWidth="2"/>
-        <text x="60" y="68" textAnchor="middle" fill="#FFFFFF" fontSize="26" fontWeight="bold">ETG</text>
-      </svg>
-    ),
+    title: "Fundraising Support",
+    detail: "Donor support helps cover travel, hotels, vans, and meals for athletes.",
   },
   {
-    name: "Omaha Basketball",
-    logo: (
-      <svg viewBox="0 0 120 120" className="w-16 h-16">
-        <rect x="10" y="10" width="100" height="100" rx="5" fill="#000000"/>
-        <path d="M 30 45 L 60 30 L 90 45 L 90 75 L 60 90 L 30 75 Z" fill="none" stroke="#FFD700" strokeWidth="3"/>
-        <text x="60" y="68" textAnchor="middle" fill="#FFD700" fontSize="22" fontWeight="bold">OB</text>
-      </svg>
-    ),
+    title: "Program Structure",
+    detail: "ETG fields one boys and one girls team at 15U, 16U, and 17U.",
   },
   {
-    name: "Supreme Basketball",
-    logo: (
-      <svg viewBox="0 0 120 120" className="w-16 h-16">
-        <circle cx="60" cy="60" r="55" fill="#FFFFFF" stroke="#FF6B35" strokeWidth="3"/>
-        <circle cx="60" cy="40" r="8" fill="#FF6B35"/>
-        <circle cx="45" cy="55" r="6" fill="#FF6B35"/>
-        <circle cx="75" cy="55" r="6" fill="#FF6B35"/>
-        <circle cx="40" cy="75" r="5" fill="#FF6B35"/>
-        <circle cx="60" cy="75" r="5" fill="#FF6B35"/>
-        <circle cx="80" cy="75" r="5" fill="#FF6B35"/>
-        <text x="60" y="98" textAnchor="middle" fill="#FF6B35" fontSize="16" fontWeight="bold">SUPREME</text>
-      </svg>
-    ),
+    title: "Scholarship Exposure",
+    detail: "Competition schedules are designed to increase college visibility.",
   },
+];
+
+const scheduleSnapshot = [
+  "Start to Rise - Iowa City, IA (Apr 14-16)",
+  "KC Classic - Kansas City, KS (Apr 21-23)",
+  "Live Period - Suwanee, GA (Jul 6-9)",
+  "Homegrown Regional Championship - Jul 14-16",
+  "Adidas Gauntlet - Augusta, GA (Jul 20-23)",
 ];
 
 export function SponsorsSection() {
   const ref = useScrollReveal();
 
-  // Double the sponsors for seamless loop
-  const tickerItems = [...sponsors, ...sponsors, ...sponsors, ...sponsors];
-
   return (
-    <section className="py-14 bg-white border-b border-gray-200 overflow-hidden">
-      <div ref={ref} className="reveal">
-        {/* Section label */}
+    <section className="py-16 bg-white border-b border-gray-200 overflow-hidden">
+      <div ref={ref} className="reveal max-w-7xl mx-auto px-6">
         <p
-          className="text-center mb-8 text-gray-400 uppercase tracking-[0.2em]"
+          className="text-center mb-3 text-gray-400 uppercase tracking-[0.2em]"
           style={{ fontFamily: "var(--font-condensed)", fontSize: "0.75rem", fontWeight: 600 }}
         >
-          Powered by Three Iconic Programs
+          2025 Program Snapshot
         </p>
+        <h2
+          className="text-center text-gray-900 mb-10"
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "clamp(1.8rem, 3.4vw, 2.8rem)",
+            letterSpacing: "-0.01em",
+            textTransform: "uppercase",
+          }}
+        >
+          Built For Development And Exposure
+        </h2>
 
-        {/* Infinite ticker */}
-        <div className="relative">
-          {/* Fade edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-
-          <div className="overflow-hidden">
-            <div className="ticker-track">
-              {tickerItems.map((sponsor, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col items-center justify-center px-12 shrink-0 grayscale hover:grayscale-0 opacity-50 hover:opacity-100 transition-all duration-300 cursor-pointer"
-                >
-                  {sponsor.logo}
-                  <span
-                    className="mt-2 text-gray-500"
-                    style={{ fontFamily: "var(--font-condensed)", fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase" }}
-                  >
-                    {sponsor.name}
-                  </span>
-                </div>
-              ))}
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-8">
+          {seasonNotes.map((item) => (
+            <div
+              key={item.title}
+              className="rounded-xl border border-gray-200 bg-gray-50 px-5 py-5"
+            >
+              <p
+                className="text-gray-900 mb-2"
+                style={{
+                  fontFamily: "var(--font-condensed)",
+                  fontSize: "0.86rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                }}
+              >
+                {item.title}
+              </p>
+              <p
+                className="text-gray-600"
+                style={{ fontFamily: "var(--font-body)", fontSize: "0.92rem", lineHeight: 1.6 }}
+              >
+                {item.detail}
+              </p>
             </div>
-          </div>
+          ))}
+        </div>
+
+        <div className="rounded-xl border border-gray-200 bg-white p-6">
+          <p
+            className="text-gray-400 mb-3"
+            style={{
+              fontFamily: "var(--font-condensed)",
+              fontSize: "0.72rem",
+              fontWeight: 700,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+            }}
+          >
+            Legacy Schedule Reference
+          </p>
+          <ul className="grid gap-2 md:grid-cols-2">
+            {scheduleSnapshot.map((item) => (
+              <li
+                key={item}
+                className="text-gray-700"
+                style={{ fontFamily: "var(--font-body)", fontSize: "0.92rem", lineHeight: 1.6 }}
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

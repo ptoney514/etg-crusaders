@@ -7,11 +7,22 @@ import etgLogo from "@/assets/etg-logo.png";
 import { useScrollNav } from "@/hooks/useScrollNav";
 import { MobileMenu } from "./MobileMenu";
 
-const navItems = [
+type NavItem = {
+  label: string;
+  href: string;
+  external?: boolean;
+};
+
+const navItems: NavItem[] = [
   { label: "HOME", href: "/" },
   { label: "ROSTER", href: "/roster" },
   { label: "NEWSLETTERS", href: "/newsletters" },
   { label: "ABOUT", href: "/#about" },
+  {
+    label: "DONATE",
+    href: "https://checkout.square.site/merchant/MLRVBXAYN9BCX/checkout/ACR3HAFIJ3LPIZDOG2UZR52E",
+    external: true,
+  },
   { label: "CONTACT", href: "/#contact" },
 ];
 
@@ -22,6 +33,10 @@ function isActiveLink(pathname: string, href: string) {
 
   if (href.startsWith("/#")) {
     return pathname === "/";
+  }
+
+  if (href.startsWith("http")) {
+    return false;
   }
 
   return pathname.startsWith(href);
@@ -57,17 +72,29 @@ export function Navigation() {
               />
             </Link>
             <div className="hidden lg:flex items-center gap-8">
-              {navItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className={`nav-link text-white/90 hover:text-white transition-colors ${
-                    isActiveLink(pathname, item.href) ? "active" : ""
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {navItems.map((item) =>
+                item.external ? (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="nav-link text-white/90 hover:text-white transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className={`nav-link text-white/90 hover:text-white transition-colors ${
+                      isActiveLink(pathname, item.href) ? "active" : ""
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                ),
+              )}
             </div>
           </div>
 

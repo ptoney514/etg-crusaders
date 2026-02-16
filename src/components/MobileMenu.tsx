@@ -13,6 +13,11 @@ const navItems = [
   { label: "ROSTER", href: "/roster" },
   { label: "NEWSLETTERS", href: "/newsletters" },
   { label: "ABOUT", href: "/#about" },
+  {
+    label: "DONATE",
+    href: "https://checkout.square.site/merchant/MLRVBXAYN9BCX/checkout/ACR3HAFIJ3LPIZDOG2UZR52E",
+    external: true,
+  },
   { label: "CONTACT", href: "/#contact" },
 ];
 
@@ -35,18 +40,35 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             style={{ animationDelay: `${index * 60}ms` }}
             className="animate-[fadeInUp_0.5s_cubic-bezier(0.16,1,0.3,1)_both]"
           >
-            <Link
-              href={item.href}
-              onClick={onClose}
-              className="block text-white text-2xl py-3 px-6 hover:text-[var(--etg-red)] transition-colors"
-              style={{
-                fontFamily: "var(--font-display)",
-                fontWeight: 600,
-                letterSpacing: "0.08em",
-              }}
-            >
-              {item.label}
-            </Link>
+            {item.external ? (
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
+                onClick={onClose}
+                className="block text-white text-2xl py-3 px-6 hover:text-[var(--etg-red)] transition-colors"
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 600,
+                  letterSpacing: "0.08em",
+                }}
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                href={item.href}
+                onClick={onClose}
+                className="block text-white text-2xl py-3 px-6 hover:text-[var(--etg-red)] transition-colors"
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 600,
+                  letterSpacing: "0.08em",
+                }}
+              >
+                {item.label}
+              </Link>
+            )}
           </div>
         ))}
       </nav>

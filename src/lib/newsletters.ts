@@ -14,108 +14,99 @@ export type NewsletterPost = {
 
 export const newsletterPosts: NewsletterPost[] = [
   {
-    slug: "october-2024-fall-highlights",
+    slug: "february-2026-help-etg-build-tomorrows-leaders",
     title: "Everything To Gain",
-    subtitle: "Fall Season Highlights & Championship Updates",
+    subtitle: "February 2026 - Help ETG Build Tomorrow's Leaders",
     excerpt:
-      "Catch up on fall season achievements, player spotlights, and upcoming tournament schedules.",
-    publishedAt: "2024-10-01",
+      "The February edition highlights spring and summer team plans and outlines how donor support helps fund flights, hotels, vans, and meals for athletes.",
+    publishedAt: "2026-02-20",
     image: newsletterPreview,
+    pdfUrl:
+      "https://cdn.prod.website-files.com/63e1902437bdfc4cd77ce3f6/67b7ca1006fa159777965674_Everything%20to%20Gain%20February%20Newsletter.pdf",
     content: [
-      "The Crusaders wrapped up a strong fall run with growth across every age group and notable wins in regional tournament play.",
-      "This issue highlights player development milestones, upcoming showcase dates, and coaching notes focused on defensive consistency.",
-      "Families can review November travel plans and registration windows in the events section of the printed release.",
+      "ETG's mission is to create opportunities for local high school athletes to compete at a high level and gain scholarship exposure.",
+      "This issue explains how transportation, lodging, and meal support directly impact players and their families during the season.",
+      "Supporters are invited to participate in spring fundraising efforts that sustain boys and girls programming across all age groups.",
     ],
   },
   {
-    slug: "september-2024-season-kickoff",
+    slug: "december-2025-lessons-that-last-a-lifetime",
     title: "Everything To Gain",
-    subtitle: "Season Kickoff & New Roster",
+    subtitle: "December 2025 - Lessons That Last a Lifetime",
     excerpt:
-      "Meet the new roster, review training camp highlights, and get a first look at the season calendar.",
-    publishedAt: "2024-09-01",
+      "Holiday reflections from Coach Woodard and stories from alumni showing how Crusader values translate into meaningful careers.",
+    publishedAt: "2025-12-06",
     image: newsletterPreview,
+    pdfUrl:
+      "https://cdn.prod.website-files.com/63e1902437bdfc4cd77ce3f6/675233ed30df1f66f7088ded_Everything%20to%20Gain%20December%20Newsletter.pdf",
     content: [
-      "September introduced new athletes at every level with an emphasis on skill progression and game IQ.",
-      "Coaches outlined standards for accountability, practice attendance, and game-film review expectations.",
+      "The December issue celebrates alumni progress and the long-term outcomes created by accountability, teamwork, and discipline.",
+      "Featured stories highlight former players serving in business, medicine, and nonprofit leadership roles across the region.",
+      "The program closes the year by emphasizing gratitude and mentorship for the next generation of ETG athletes.",
     ],
   },
   {
-    slug: "august-2024-summer-recap",
+    slug: "october-2025-where-champions-go-next",
     title: "Everything To Gain",
-    subtitle: "Summer Recap & Alumni Spotlights",
+    subtitle: "October 2025 - Where Champions Go Next",
     excerpt:
-      "A recap of summer development programs, alumni updates, and preseason preparation priorities.",
-    publishedAt: "2024-08-01",
+      "Fall update on ETG's inaugural youth tournament and alumni who continue to set the standard after their playing careers.",
+    publishedAt: "2025-10-11",
     image: newsletterPreview,
+    pdfUrl:
+      "https://cdn.prod.website-files.com/63e1902437bdfc4cd77ce3f6/6709f56f13f8438275f16f6b_Everything%20to%20Gain%20October%20Newsletter.pdf",
     content: [
-      "Summer sessions focused on footwork, transition reads, and strength foundations that carry into fall competition.",
-      "Alumni highlights include college commitments and offseason leadership in local camps.",
+      "October spotlights athletes competing for scholarships and performing on bigger stages during the fall cycle.",
+      "The newsletter introduces ETG's December youth event at Iowa West Fieldhouse.",
+      "Alumni stories continue to reinforce the program's core belief that growth extends well beyond basketball.",
     ],
   },
   {
-    slug: "july-2024-training-programs",
+    slug: "august-2025-alumni-spotlight",
     title: "Everything To Gain",
-    subtitle: "Summer Training Programs",
+    subtitle: "August 2025 - ETG Crusaders Alumni Newsletter",
     excerpt:
-      "Inside the intensive July training block and the performance benchmarks used by our staff.",
-    publishedAt: "2024-07-01",
+      "Late-summer recap featuring alumni achievements and updates on program momentum heading into the fall.",
+    publishedAt: "2025-08-07",
     image: newsletterPreview,
+    pdfUrl:
+      "https://cdn.prod.website-files.com/63e1902437bdfc4cd77ce3f6/6894f26ca06ec73ca0f0ce07_Everything%20to%20Gain%20August%20Newsletter.pdf",
     content: [
-      "July programming emphasized decision-making under pressure and finishing through contact.",
-      "Players tracked weekly skill metrics to guide personal training priorities.",
+      "The August edition captures offseason growth, donor impact, and preparation priorities for the next competition cycle.",
+      "ETG leadership shares updates on operations and continued investment in athlete development pathways.",
+      "Families and alumni are encouraged to stay involved as teams transition into fall training windows.",
     ],
   },
   {
-    slug: "june-2024-awards-and-wrapup",
+    slug: "june-2025-etg-crusaders-alumni-newsletter",
     title: "Everything To Gain",
-    subtitle: "End of Season Awards & Celebrations",
+    subtitle: "June 2025 - ETG Crusaders Alumni Newsletter",
     excerpt:
-      "Team achievements, award winners, and plans heading into the next cycle.",
-    publishedAt: "2024-06-01",
+      "Program anniversary updates, summer camp announcements, and a look at the Crusaders mission since 1993.",
+    publishedAt: "2025-06-13",
     image: newsletterPreview,
+    pdfUrl:
+      "https://cdn.prod.website-files.com/63e1902437bdfc4cd77ce3f6/684c4e8dbdd22d6ec4bfba86_Everything%20to%20Gain%20June%20Newsletter.pdf",
     content: [
-      "The June edition celebrates team milestones and individual growth across all programs.",
-      "Families also receive updated timelines for summer camps and roster evaluations.",
+      "June reflects on the Omaha Crusaders foundation and the program's evolution into ETG Midwest.",
+      "The issue includes summer camp updates and progress from both boys and girls teams.",
+      "Alumni support remains central to funding travel and competitive opportunities for current players.",
     ],
   },
   {
-    slug: "may-2024-playoff-push",
+    slug: "april-2025-etg-crusaders-alumni-newsletter",
     title: "Everything To Gain",
-    subtitle: "Playoff Push & Tournament Preview",
+    subtitle: "April 2025 - ETG Crusaders Alumni Newsletter",
     excerpt:
-      "Key tournament matchups, preparation notes, and playoff mindset from the coaching staff.",
-    publishedAt: "2024-05-01",
+      "Schedule release for boys and girls teams plus spring fundraising events supporting the annual program budget.",
+    publishedAt: "2025-04-17",
     image: newsletterPreview,
+    pdfUrl:
+      "https://cdn.prod.website-files.com/63e1902437bdfc4cd77ce3f6/6801351c233f1ff52ee88cc8_Everything%20to%20Gain%20April%20Newsletter.pdf",
     content: [
-      "May focused on playoff execution and late-clock situational reps.",
-      "The staff shared opponent scouting frameworks and communication priorities.",
-    ],
-  },
-  {
-    slug: "april-2024-mid-season-report",
-    title: "Everything To Gain",
-    subtitle: "Mid-Season Report & Player Spotlights",
-    excerpt:
-      "Mid-season metrics, standings snapshots, and featured athlete development stories.",
-    publishedAt: "2024-04-01",
-    image: newsletterPreview,
-    content: [
-      "April tracked progress in pace control, rebounding margins, and shot quality.",
-      "Spotlights recognized athletes leading by example both on and off the floor.",
-    ],
-  },
-  {
-    slug: "march-2024-spring-break-camp",
-    title: "Everything To Gain",
-    subtitle: "Spring Break Training Camp",
-    excerpt:
-      "Camp recap, guest trainers, and takeaways players are bringing into league play.",
-    publishedAt: "2024-03-01",
-    image: newsletterPreview,
-    content: [
-      "Spring break camp sessions targeted acceleration, agility, and spacing reads.",
-      "Players left with individualized training checkpoints for the remainder of spring.",
+      "April's issue outlines a full travel and tournament plan needed for shoe-circuit-level competition.",
+      "The newsletter promotes key fundraising events, including the Dinner Bash and community support initiatives.",
+      "ETG emphasizes that donor participation directly expands access and exposure for student-athletes.",
     ],
   },
 ];

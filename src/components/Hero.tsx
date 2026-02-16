@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ChevronDown, Play } from "lucide-react";
+import { ChevronDown, HeartHandshake } from "lucide-react";
 import heroImage from "@/assets/hero-background.png";
 import { Button } from "./ui/button";
 
@@ -37,7 +37,7 @@ export function Hero() {
               className="inline-block px-4 py-1.5 text-xs tracking-[0.2em] uppercase border border-[var(--etg-red)]/40 text-[var(--etg-red)] rounded-sm"
               style={{ fontFamily: "var(--font-condensed)", fontWeight: 600 }}
             >
-              Elite Basketball Training
+              Nonprofit 501(c)(3) Youth Basketball Program
             </span>
           </div>
 
@@ -51,7 +51,7 @@ export function Hero() {
           >
             ETG
             <br />
-            CRUSADERS
+            MIDWEST
             <span
               className="block mt-1"
               style={{
@@ -60,21 +60,22 @@ export function Hero() {
                 letterSpacing: "0.15em",
               }}
             >
-              BASKETBALL
+              EVERYTHING TO GAIN
             </span>
           </h1>
 
           <p
-            className="hero-subtitle text-white/70 mb-10 max-w-xl"
+            className="hero-subtitle text-white/70 mb-10 max-w-2xl"
             style={{
               fontFamily: "var(--font-body)",
-              fontSize: "clamp(1rem, 2vw, 1.2rem)",
-              lineHeight: 1.7,
+              fontSize: "clamp(1rem, 2vw, 1.12rem)",
+              lineHeight: 1.75,
               fontWeight: 300,
             }}
           >
-            Building champions on and off the court. Experience elite basketball
-            training and development through our comprehensive programs.
+            ETG was created to offer local high school players a chance to compete
+            against national-level talent and increase scholarship opportunities.
+            We currently field one boys and one girls team at 15U, 16U, and 17U.
           </p>
 
           <div className="hero-buttons flex flex-col sm:flex-row gap-4">
@@ -89,7 +90,7 @@ export function Hero() {
                 letterSpacing: "0.1em",
               }}
             >
-              <Link href="/roster">VIEW PLAYER ROSTER</Link>
+              <Link href="/roster">VIEW 2025 ROSTER</Link>
             </Button>
             <Button
               asChild
@@ -103,9 +104,13 @@ export function Hero() {
                 letterSpacing: "0.1em",
               }}
             >
-              <Link href="/newsletters">
-                <Play className="w-4 h-4 mr-2" />
-                READ NEWSLETTERS
+              <Link
+                href="https://checkout.square.site/merchant/MLRVBXAYN9BCX/checkout/ACR3HAFIJ3LPIZDOG2UZR52E"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <HeartHandshake className="w-4 h-4 mr-2" />
+                DONATE TO ETG
               </Link>
             </Button>
           </div>

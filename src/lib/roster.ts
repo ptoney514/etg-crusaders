@@ -2,9 +2,12 @@ export type Player = {
   slug: string;
   name: string;
   gradYear: number;
-  position: "Guard" | "Wing" | "Forward" | "Center";
+  position: string;
   team: string;
-  headshot: string;
+  school: string;
+  jerseyNumber: number;
+  height?: string;
+  headshot?: string;
   bio: string;
   social: {
     instagram?: string;
@@ -12,115 +15,92 @@ export type Player = {
   };
 };
 
-export const players: Player[] = [
-  {
-    slug: "jaylen-carter",
-    name: "Jaylen Carter",
-    gradYear: 2027,
-    position: "Guard",
-    team: "ETG Crusaders 16U",
-    headshot:
-      "https://images.unsplash.com/photo-1615109398623-88346a601842?auto=format&fit=crop&w=700&q=80",
-    bio: "Lead guard with strong pick-and-roll reads, defensive pace, and consistent shot creation in transition.",
-    social: {
-      instagram: "https://instagram.com/jaylen.carter",
-      twitter: "https://x.com/jaylencarter",
-    },
-  },
-  {
-    slug: "mason-price",
-    name: "Mason Price",
-    gradYear: 2028,
-    position: "Wing",
-    team: "ETG Crusaders 15U",
-    headshot:
-      "https://images.unsplash.com/photo-1614212101176-3a7f7095f3ce?auto=format&fit=crop&w=700&q=80",
-    bio: "Two-way wing who rebounds above position and spaces the floor with dependable perimeter shooting.",
-    social: {
-      instagram: "https://instagram.com/mason.price",
-    },
-  },
-  {
-    slug: "kaden-brooks",
-    name: "Kaden Brooks",
-    gradYear: 2026,
-    position: "Forward",
-    team: "ETG Crusaders 17U",
-    headshot:
-      "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=700&q=80",
-    bio: "Physical forward with rim pressure, switchable defense, and high-motor effort across both halves.",
-    social: {
-      twitter: "https://x.com/kadenbrooks",
-    },
-  },
-  {
-    slug: "isaiah-thomas-jr",
-    name: "Isaiah Thomas Jr.",
-    gradYear: 2027,
-    position: "Guard",
-    team: "ETG Crusaders 16U",
-    headshot:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=700&q=80",
-    bio: "Dynamic downhill guard with elite speed and improved off-ball spacing discipline.",
-    social: {
-      instagram: "https://instagram.com/isaiah.thomasjr",
-      twitter: "https://x.com/isaiahthomasjr",
-    },
-  },
-  {
-    slug: "eli-garcia",
-    name: "Eli Garcia",
-    gradYear: 2029,
-    position: "Wing",
-    team: "ETG Crusaders 14U",
-    headshot:
-      "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=700&q=80",
-    bio: "Emerging scorer with length, active hands, and a strong growth curve as a secondary playmaker.",
-    social: {
-      instagram: "https://instagram.com/eligarciahoops",
-    },
-  },
-  {
-    slug: "tyler-mitchell",
-    name: "Tyler Mitchell",
-    gradYear: 2026,
-    position: "Center",
-    team: "ETG Crusaders 17U",
-    headshot:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80",
-    bio: "Interior anchor who protects the paint, screens effectively, and finishes efficiently near the rim.",
-    social: {
-      twitter: "https://x.com/tylermitchell34",
-    },
-  },
-  {
-    slug: "nolan-reed",
-    name: "Nolan Reed",
-    gradYear: 2028,
-    position: "Forward",
-    team: "ETG Crusaders 15U",
-    headshot:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=700&q=80",
-    bio: "Versatile forward with improved face-up game and high-impact weak-side help instincts.",
-    social: {
-      instagram: "https://instagram.com/nolan.reed",
-      twitter: "https://x.com/nolanreed",
-    },
-  },
-  {
-    slug: "camden-ward",
-    name: "Camden Ward",
-    gradYear: 2029,
-    position: "Guard",
-    team: "ETG Crusaders 14U",
-    headshot:
-      "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=700&q=80",
-    bio: "Floor-spacing combo guard who takes care of the ball and creates high-value possessions late in games.",
-    social: {
-      instagram: "https://instagram.com/camdenwardhoops",
-    },
-  },
+type PlayerSeed = Omit<Player, "slug" | "bio" | "social" | "position"> & {
+  bio?: string;
+  social?: Player["social"];
+  position?: string;
+};
+
+function toSlug(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
+}
+
+const seedPlayers: PlayerSeed[] = [
+  { name: "Matthew Schrunk", team: "Boys 17U", jerseyNumber: 0, gradYear: 2025, school: "Omaha South", height: "6'8" },
+  { name: "Melvin Del Rosario", team: "Boys 17U", jerseyNumber: 1, gradYear: 2025, school: "Omaha Central", height: "6'5" },
+  { name: "Garrett Middaugh", team: "Boys 17U", jerseyNumber: 2, gradYear: 2025, school: "Abraham Lincoln", height: "6'2" },
+  { name: "Jaxsen Timm", team: "Boys 17U", jerseyNumber: 3, gradYear: 2026, school: "Millard South", height: "6'0" },
+  { name: "Landen Gessert", team: "Boys 17U", jerseyNumber: 5, gradYear: 2026, school: "Millard North", height: "6'2" },
+  { name: "Jayden Williams", team: "Boys 17U", jerseyNumber: 6, gradYear: 2025, school: "Omaha Central", height: "6'4" },
+  { name: "Cael Bruner", team: "Boys 17U", jerseyNumber: 7, gradYear: 2025, school: "Millard North", height: "6'2" },
+  { name: "Trevon Mosley", team: "Boys 17U", jerseyNumber: 8, gradYear: 2025, school: "Bellevue East", height: "6'2" },
+
+  { name: "Damian Walker", team: "Boys 16U", jerseyNumber: 0, gradYear: 2027, school: "St. Albert", height: "6'1" },
+  { name: "Braeden Hansen", team: "Boys 16U", jerseyNumber: 1, gradYear: 2027, school: "Elkhorn North", height: "6'4" },
+  { name: "Jesse Marquez", team: "Boys 16U", jerseyNumber: 2, gradYear: 2026, school: "Omaha South", height: "6'1" },
+  { name: "Asael Martinez", team: "Boys 16U", jerseyNumber: 3, gradYear: 2027, school: "Omaha South", height: "6'2" },
+  { name: "Simeon Love", team: "Boys 16U", jerseyNumber: 4, gradYear: 2027, school: "Omaha North", height: "6'2" },
+  { name: "Marlon Greene", team: "Boys 16U", jerseyNumber: 5, gradYear: 2027, school: "Omaha South", height: "6'2" },
+  { name: "Jayce Cherry", team: "Boys 16U", jerseyNumber: 8, gradYear: 2027, school: "Omaha South", height: "6'0" },
+  { name: "Dallas Hawkins", team: "Boys 16U", jerseyNumber: 9, gradYear: 2027, school: "Omaha North", height: "6'0" },
+  { name: "Kiyel Hines", team: "Boys 16U", jerseyNumber: 11, gradYear: 2028, school: "Omaha North", height: "5'10" },
+
+  { name: "Mason Henrich", team: "Boys 15U", jerseyNumber: 1, gradYear: 2028, school: "Bellevue West", height: "6'1" },
+  { name: "Daniel Mendez", team: "Boys 15U", jerseyNumber: 2, gradYear: 2028, school: "Omaha South", height: "6'0" },
+  { name: "Avery Barker", team: "Boys 15U", jerseyNumber: 3, gradYear: 2028, school: "Bellevue East", height: "5'8" },
+  { name: "Carter Vacek", team: "Boys 15U", jerseyNumber: 4, gradYear: 2028, school: "Wahoo", height: "6'2" },
+  { name: "Landen Schelkopf", team: "Boys 15U", jerseyNumber: 5, gradYear: 2028, school: "Lincoln Northeast", height: "6'4" },
+  { name: "Vince Chavez", team: "Boys 15U", jerseyNumber: 6, gradYear: 2028, school: "Omaha South", height: "6'2" },
+  { name: "Jesse Bian", team: "Boys 15U", jerseyNumber: 7, gradYear: 2028, school: "Omaha South", height: "6'0" },
+  { name: "Drelyn Logan", team: "Boys 15U", jerseyNumber: 8, gradYear: 2028, school: "Omaha South", height: "5'8" },
+  { name: "Tez Bian", team: "Boys 15U", jerseyNumber: 11, gradYear: 2028, school: "Omaha South", height: "6'0" },
+
+  { name: "Addie Lame", team: "Girls 17U", jerseyNumber: 0, gradYear: 2027, school: "Bellevue East" },
+  { name: "Nyla Brown", team: "Girls 17U", jerseyNumber: 1, gradYear: 2028, school: "Omaha North" },
+  { name: "Mallory Brown", team: "Girls 17U", jerseyNumber: 2, gradYear: 2027, school: "Bellevue East" },
+  { name: "Alauna Rosenthal", team: "Girls 17U", jerseyNumber: 3, gradYear: 2028, school: "Omaha North" },
+  { name: "Elizabeth Wisdom", team: "Girls 17U", jerseyNumber: 4, gradYear: 2028, school: "Omaha North" },
+  { name: "Lilly Bialas", team: "Girls 17U", jerseyNumber: 5, gradYear: 2028, school: "Bennington" },
+  { name: "Dylan Morrow", team: "Girls 17U", jerseyNumber: 6, gradYear: 2027, school: "Bellevue East" },
+  { name: "Amya Gregg", team: "Girls 17U", jerseyNumber: 8, gradYear: 2028, school: "Omaha North" },
+  { name: "Destiny Houston", team: "Girls 17U", jerseyNumber: 9, gradYear: 2028, school: "Omaha North" },
+  { name: "Jerzy Waugh", team: "Girls 17U", jerseyNumber: 10, gradYear: 2028, school: "Omaha North" },
+
+  { name: "Kinley Cox", team: "Girls 16U", jerseyNumber: 0, gradYear: 2028, school: "Waverly" },
+  { name: "Sadee Faz", team: "Girls 16U", jerseyNumber: 1, gradYear: 2028, school: "Waverly" },
+  { name: "Lily Granberg", team: "Girls 16U", jerseyNumber: 2, gradYear: 2028, school: "Gretna East" },
+  { name: "Amelia Heth", team: "Girls 16U", jerseyNumber: 3, gradYear: 2028, school: "Waverly" },
+  { name: "Mia Weiner", team: "Girls 16U", jerseyNumber: 4, gradYear: 2028, school: "Ralston" },
+  { name: "Shynna Williams", team: "Girls 16U", jerseyNumber: 5, gradYear: 2029, school: "Bellevue East" },
+  { name: "Jadyn Cooley", team: "Girls 16U", jerseyNumber: 6, gradYear: 2028, school: "Bellevue East" },
+  { name: "Ariel Brown", team: "Girls 16U", jerseyNumber: 8, gradYear: 2028, school: "Bellevue East" },
+  { name: "Alisia Johnson", team: "Girls 16U", jerseyNumber: 9, gradYear: 2028, school: "Bellevue East" },
+
+  { name: "Kaylynn Ross", team: "Girls 15U", jerseyNumber: 0, gradYear: 2028, school: "Millard South" },
+  { name: "London Noble", team: "Girls 15U", jerseyNumber: 1, gradYear: 2028, school: "Bellevue East" },
+  { name: "Kiera Trenary", team: "Girls 15U", jerseyNumber: 2, gradYear: 2028, school: "Ralston" },
+  { name: "Alyssa Brown", team: "Girls 15U", jerseyNumber: 3, gradYear: 2028, school: "Bellevue East" },
+  { name: "Blaire Marrott", team: "Girls 15U", jerseyNumber: 4, gradYear: 2028, school: "Bellevue East" },
+  { name: "Myra Trenary", team: "Girls 15U", jerseyNumber: 5, gradYear: 2028, school: "Ralston" },
+  { name: "Summer Taylor", team: "Girls 15U", jerseyNumber: 6, gradYear: 2029, school: "Bellevue East" },
+  { name: "Annelise Oneill", team: "Girls 15U", jerseyNumber: 8, gradYear: 2028, school: "Bellevue East" },
+  { name: "Emma Clemens", team: "Girls 15U", jerseyNumber: 9, gradYear: 2028, school: "Duchesne" },
+  { name: "Nahla Hudnall", team: "Girls 15U", jerseyNumber: 10, gradYear: 2028, school: "Omaha South" },
 ];
+
+export const players: Player[] = seedPlayers.map((player) => ({
+  ...player,
+  slug: toSlug(`${player.name} ${player.team}`),
+  position: player.position ?? "TBD",
+  bio:
+    player.bio ??
+    `${player.name} is listed on the ${player.team} roster for ETG Midwest. ${player.school} • Class of ${player.gradYear}.`,
+  social: player.social ?? {},
+}));
 
 export function getPlayerBySlug(slug: string) {
   return players.find((player) => player.slug === slug);

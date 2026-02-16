@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { ArrowLeft, Calendar, Filter, Search } from "lucide-react";
+import { ArrowLeft, Calendar, Download, Filter, Search } from "lucide-react";
 import { newsletterPosts } from "@/lib/newsletters";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
@@ -25,6 +25,7 @@ function getYear(date: string) {
 function formatPublishedDate(date: string) {
   return new Date(date).toLocaleDateString("en-US", {
     month: "long",
+    day: "numeric",
     year: "numeric",
   });
 }
@@ -118,7 +119,7 @@ export function NewslettersArchive() {
               lineHeight: 1.7,
             }}
           >
-            Browse monthly newsletter issues and follow ETG updates year-round.
+            Browse ETG's Everything To Gain issues and download full PDF editions.
           </p>
         </div>
 
@@ -253,20 +254,34 @@ export function NewslettersArchive() {
                   >
                     {newsletter.excerpt}
                   </p>
-                  <Button
-                    asChild
-                    size="sm"
-                    variant="outline"
-                    className="border-white/15 text-white/70 hover:bg-white/5 hover:text-white w-full"
-                    style={{
-                      fontFamily: "var(--font-condensed)",
-                      fontSize: "0.75rem",
-                      fontWeight: 600,
-                      letterSpacing: "0.05em",
-                    }}
-                  >
-                    <Link href={`/newsletters/${newsletter.slug}`}>READ ISSUE</Link>
-                  </Button>
+                  <div className="flex gap-2">
+                    <Button
+                      asChild
+                      size="sm"
+                      variant="outline"
+                      className="border-white/15 text-white/70 hover:bg-white/5 hover:text-white flex-1"
+                      style={{
+                        fontFamily: "var(--font-condensed)",
+                        fontSize: "0.75rem",
+                        fontWeight: 600,
+                        letterSpacing: "0.05em",
+                      }}
+                    >
+                      <Link href={`/newsletters/${newsletter.slug}`}>READ ISSUE</Link>
+                    </Button>
+                    {newsletter.pdfUrl ? (
+                      <Button
+                        asChild
+                        size="sm"
+                        variant="outline"
+                        className="border-white/15 text-white/70 hover:bg-white/5 hover:text-white"
+                      >
+                        <a href={newsletter.pdfUrl} target="_blank" rel="noreferrer" aria-label="Download PDF">
+                          <Download className="w-3.5 h-3.5" />
+                        </a>
+                      </Button>
+                    ) : null}
+                  </div>
                 </div>
               </Card>
             ))}

@@ -21,15 +21,14 @@ function StatItem({ value, suffix, label }: { value: number; suffix: string; lab
 
 export function StatsSection() {
   const stats = [
-    { value: 15, suffix: "+", label: "Years of Excellence" },
-    { value: 200, suffix: "+", label: "Players Developed" },
-    { value: 50, suffix: "+", label: "Scholarships Earned" },
-    { value: 3, suffix: "", label: "Elite Programs" },
+    { value: 34, suffix: "+", label: "Years Since Founding" },
+    { value: 200, suffix: "+", label: "College Scholarships" },
+    { value: 6, suffix: "", label: "Boys & Girls Teams" },
+    { value: 2, suffix: "", label: "Metro Areas Served" },
   ];
 
   return (
     <section className="relative py-20 bg-[var(--surface-1)] overflow-hidden">
-      {/* Subtle red radial glow */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] pointer-events-none"
         style={{
@@ -45,7 +44,6 @@ export function StatsSection() {
         </div>
       </div>
 
-      {/* Top and bottom lines */}
       <div className="absolute top-0 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       <div className="absolute bottom-0 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
     </section>
