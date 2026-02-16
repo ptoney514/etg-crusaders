@@ -1,7 +1,10 @@
 node_modules
 dist
+.next
+out
 .DS_Store
 *.local
+*.tsbuildinfo
 *.png
 !src/assets/*.png
 public/
