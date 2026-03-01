@@ -63,6 +63,32 @@ export function PartnersSection() {
             >
               SUPPORT ETG
             </Link>
+
+            <div className="mt-12">
+              <p
+                className="text-white/40 uppercase tracking-widest text-xs mb-6"
+                style={{ fontFamily: "var(--font-condensed)" }}
+              >
+                Community Partners
+              </p>
+              <div className="flex flex-wrap items-center gap-8 opacity-80">
+                <img
+                  src="/images/sponsors/osa.png"
+                  alt="Omaha Sports Academy"
+                  className="h-12 w-auto object-contain drop-shadow-lg"
+                />
+                <img
+                  src="/images/sponsors/supreme.png"
+                  alt="Supreme Court Basketball"
+                  className="h-12 w-auto object-contain drop-shadow-lg"
+                />
+                <img
+                  src="/images/sponsors/tne.png"
+                  alt="Team Nebraska Express"
+                  className="h-12 w-auto object-contain drop-shadow-lg"
+                />
+              </div>
+            </div>
           </div>
 
           <div className="grid gap-4">

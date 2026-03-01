@@ -2,35 +2,35 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const images = [
   {
-    url: "https://images.unsplash.com/photo-1710378844976-93a6538671ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYXNrZXRiYWxsJTIwY291cnQlMjBpbmRvb3J8ZW58MXx8fHwxNzU5ODI1OTEyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    url: "/images/team/etgmidwest-images_FYUgrB-UYAI3a86.jpeg",
     alt: "Basketball court",
     caption: "Home Court",
     colSpan: "md:col-span-1",
     rowSpan: "md:row-span-2",
   },
   {
-    url: "https://images.unsplash.com/photo-1758798458708-d9e5260066f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYXNrZXRiYWxsJTIwcGxheWVyJTIwc2hvb3Rpbmd8ZW58MXx8fHwxNzU5ODg4NjExfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    url: "/images/team/etgmidwest-images_FXRY0YxWIAMMOjr.jpeg",
     alt: "Player shooting",
     caption: "Precision Training",
     colSpan: "md:col-span-1",
     rowSpan: "",
   },
   {
-    url: "https://images.unsplash.com/photo-1705594858888-90d164689257?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYXNrZXRiYWxsJTIwZ2FtZSUyMGFjdGlvbnxlbnwxfHx8fDE3NTk4ODg2MTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    url: "/images/team/etgmidwest-images_FYPETgnVUAAMXHh.jpeg",
     alt: "Game action",
     caption: "Game Day",
     colSpan: "md:col-span-1",
     rowSpan: "",
   },
   {
-    url: "https://images.unsplash.com/photo-1759694705159-fad2c93938f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYXNrZXRiYWxsJTIwdGVhbSUyMGh1ZGRsZXxlbnwxfHx8fDE3NTk4ODg2MTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    url: "/images/team/etgmidwest-images_FXRY0Y4WAAAuJ41.jpeg",
     alt: "Team huddle",
     caption: "Brotherhood",
     colSpan: "md:col-span-2",
     rowSpan: "",
   },
   {
-    url: "https://images.unsplash.com/photo-1758798458708-d9e5260066f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYXNrZXRiYWxsJTIwcGxheWVyJTIwc2hvb3Rpbmd8ZW58MXx8fHwxNzU5ODg4NjExfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    url: "/images/team/etgmidwest-images_FYJrfjcVUAAtHg_.jpeg",
     alt: "Practice session",
     caption: "Putting in the Work",
     colSpan: "md:col-span-1",

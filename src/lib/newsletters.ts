@@ -9,7 +9,7 @@ export type NewsletterPost = {
   subtitle: string;
   excerpt: string;
   publishedAt: string;
-  image: StaticImageData;
+  image: string;
   content: string[];
   pdfUrl?: string;
 };
@@ -22,7 +22,7 @@ export const newsletterPosts: NewsletterPost[] = [
     excerpt:
       "Coach Woodard reflects on the season and highlights alumni journeys, including Kelsey Woodard (Davis) and Sam Griesel.",
     publishedAt: "2026-02-01",
-    image: february2026Cover,
+    image: "/images/assets/ETG-newsletter-bg-16x9.png",
     pdfUrl: "/newsletters/etg-newsletter-february-2026.pdf",
     content: [
       "The February issue captures Coach Woodard's perspective as the 2025-2026 season enters its final stretch.",
@@ -37,7 +37,7 @@ export const newsletterPosts: NewsletterPost[] = [
     excerpt:
       "Holiday reflections from Coach Woodard and alumni updates showing how Crusader values continue shaping family and professional life.",
     publishedAt: "2025-12-06",
-    image: december2025Cover,
+    image: "/images/assets/ETG-newsletter-bg-16x9.png",
     pdfUrl: "/newsletters/etg-newsletter-december-2025.pdf",
     content: [
       "This edition highlights the alumni network's breadth and the impact of lessons learned through Crusader competition and mentorship.",
@@ -52,7 +52,7 @@ export const newsletterPosts: NewsletterPost[] = [
     excerpt:
       "An August update recapping summer team progress and featuring alumni spotlights from Andy King and Kelsey Newman (Schlitz).",
     publishedAt: "2025-08-01",
-    image: august2025Cover,
+    image: "/images/assets/ETG-newsletter-bg-16x9.png",
     pdfUrl: "/newsletters/etg-newsletter-august-2025.pdf",
     content: [
       "The August issue opens with a recap of summer outcomes for both boys and girls ETG Crusader teams.",

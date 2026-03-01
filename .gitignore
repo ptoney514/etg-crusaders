@@ -15,3 +15,4 @@ public/newsletters/*
 !public/newsletters/*.pdf
 /newsletters/
 .claude/settings.local.json
+.vercel

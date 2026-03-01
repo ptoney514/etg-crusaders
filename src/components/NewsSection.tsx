@@ -66,6 +66,8 @@ export function NewsSection() {
                   <Image
                     src={featured.image}
                     alt={`${formatPublishedDate(featured.publishedAt)} newsletter`}
+                    width={800}
+                    height={450}
                     className="relative rounded-lg shadow-2xl w-full h-auto object-cover"
                   />
                 </div>
@@ -131,7 +133,7 @@ export function NewsSection() {
                       asChild
                       size="lg"
                       variant="outline"
-                      className="border border-white/15 text-white/70 hover:bg-white/5 hover:text-white"
+                      className="border border-white/20 text-gray-300 bg-transparent hover:bg-white/10 hover:text-white"
                       style={{
                         fontFamily: "var(--font-display)",
                         fontSize: "0.8125rem",
@@ -193,6 +195,8 @@ export function NewsSection() {
                     <Image
                       src={newsletter.image}
                       alt={`${formatPublishedDate(newsletter.publishedAt)} newsletter`}
+                      width={600}
+                      height={800}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
@@ -235,7 +239,7 @@ export function NewsSection() {
                     asChild
                     size="sm"
                     variant="outline"
-                    className="border-white/15 text-white/70 hover:bg-white/5 hover:text-white w-full"
+                    className="border-white/20 text-gray-300 bg-transparent hover:bg-white/10 hover:text-white w-full"
                     style={{
                       fontFamily: "var(--font-condensed)",
                       fontSize: "0.75rem",

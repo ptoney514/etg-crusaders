@@ -180,7 +180,7 @@ export function NewslettersArchive() {
                 <Button
                   variant="outline"
                   onClick={handleClearFilters}
-                  className="w-full h-12 border-white/30 bg-[var(--surface-4)] text-white hover:bg-[var(--surface-3)] hover:text-white"
+                  className="w-full h-12 border-white/30 text-gray-300 bg-transparent hover:bg-white/10 hover:text-white"
                   style={{
                     fontFamily: "var(--font-condensed)",
                     fontSize: "0.8125rem",
@@ -216,6 +216,8 @@ export function NewslettersArchive() {
                     <Image
                       src={newsletter.image}
                       alt={`${formatPublishedDate(newsletter.publishedAt)} newsletter`}
+                      width={600}
+                      height={800}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
@@ -267,7 +269,7 @@ export function NewslettersArchive() {
                       asChild
                       size="sm"
                       variant="outline"
-                      className="flex-1 border-white/30 bg-[var(--surface-4)] text-white hover:bg-[var(--surface-3)] hover:text-white"
+                      className="flex-1 border-white/30 text-gray-300 bg-transparent hover:bg-white/10 hover:text-white"
                       style={{
                         fontFamily: "var(--font-condensed)",
                         fontSize: "0.75rem",
@@ -282,7 +284,7 @@ export function NewslettersArchive() {
                         asChild
                         size="sm"
                         variant="outline"
-                        className="border-white/30 bg-[var(--surface-4)] text-white hover:bg-[var(--surface-3)] hover:text-white"
+                        className="border-white/30 text-gray-300 bg-transparent hover:bg-white/10 hover:text-white"
                       >
                         <a href={newsletter.pdfUrl} target="_blank" rel="noreferrer" aria-label="Download PDF">
                           <Download className="w-3.5 h-3.5" />
