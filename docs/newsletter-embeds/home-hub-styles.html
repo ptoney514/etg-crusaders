@@ -73,55 +73,14 @@
     background: linear-gradient(90deg, rgba(200,16,46,0.6), rgba(200,16,46,0.1));
   }
   .etg-news-hub__grid {
-    display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start;
+    display: flex; justify-content: center;
   }
 
-  /* LEFT — Stay Updated card */
-  .etg-stay-card {
-    background: #111111;
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 12px;
-    padding: 48px;
-    position: sticky; top: 24px;
+  /* Issues stack — single centered column */
+  .etg-issues {
+    display: flex; flex-direction: column;
+    width: 100%; max-width: 760px;
   }
-  .etg-stay-card h2 {
-    font-family: 'Oswald', 'Arial Narrow', sans-serif;
-    font-size: 56px; font-weight: 700; line-height: 0.95;
-    text-transform: uppercase; letter-spacing: -0.01em;
-    color: #ffffff; margin: 0;
-  }
-  .etg-stay-card p.lede {
-    font-family: 'Barlow', sans-serif;
-    font-size: 16px; font-weight: 400; line-height: 1.6;
-    color: rgba(255,255,255,0.55);
-    margin: 16px 0 32px; max-width: 360px;
-  }
-  .etg-stay-card form { display: flex; flex-direction: column; gap: 12px; margin: 0; }
-  .etg-stay-card input[type="email"] {
-    background: #1a1a1a; border: 0;
-    height: 56px; padding: 0 20px; border-radius: 6px;
-    color: #ffffff; font-family: 'Barlow', sans-serif; font-size: 15px;
-    width: 100%; outline: none;
-    transition: box-shadow 200ms ease;
-  }
-  .etg-stay-card input[type="email"]::placeholder { color: rgba(255,255,255,0.30); }
-  .etg-stay-card input[type="email"]:focus { box-shadow: 0 0 0 2px rgba(200,16,46,0.5); }
-  .etg-stay-card button {
-    background: #c8102e; color: #ffffff; border: 0; cursor: pointer;
-    height: 56px; border-radius: 6px;
-    font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 700;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    transition: background 200ms ease, box-shadow 200ms ease;
-  }
-  .etg-stay-card button:hover { background: #a00d25; box-shadow: 0 0 24px rgba(200,16,46,0.4); }
-  .etg-stay-card .micro {
-    font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 500;
-    letter-spacing: 0.06em; text-transform: uppercase;
-    color: rgba(255,255,255,0.35); margin: 16px 0 0;
-  }
-
-  /* RIGHT — issues stack */
-  .etg-issues { display: flex; flex-direction: column; }
   .etg-pill {
     display: inline-flex; align-items: center;
     padding: 6px 14px; border: 1px solid #c8102e; border-radius: 999px;
@@ -212,17 +171,12 @@
   /* Tablet */
   @media (max-width: 991px) {
     .etg-news-hub { padding: 104px 24px 80px; }
-    .etg-news-hub__grid { grid-template-columns: 1fr; gap: 48px; }
-    .etg-stay-card { position: static; padding: 40px; }
-    .etg-stay-card h2 { font-size: 48px; }
   }
 
   /* Mobile */
   @media (max-width: 640px) {
     .etg-news-hub { padding: 80px 20px 64px; }
     .etg-news-hub__eyebrow { margin-bottom: 40px; }
-    .etg-stay-card { padding: 32px 24px; }
-    .etg-stay-card h2 { font-size: 40px; }
     .etg-featured { flex-direction: column; gap: 16px; }
     .etg-featured__cover { width: 100%; height: 220px; }
     .etg-featured__title { font-size: 22px; }
