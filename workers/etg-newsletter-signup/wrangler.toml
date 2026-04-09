@@ -1,0 +1,7 @@
+name = "etg-newsletter-signup"
+main = "src/index.js"
+compatibility_date = "2025-04-01"
+
+# RESEND_API_KEY is set as an encrypted secret via:
+#   wrangler secret put RESEND_API_KEY
+# It is NEVER stored in this file.
