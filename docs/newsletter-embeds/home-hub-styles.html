@@ -1,0 +1,233 @@
+<!--
+  HOME PAGE NEWSLETTER HUB — STYLES
+  Paste into Home page → Page Settings → Custom Code → "Inside <head> tag"
+  This pairs with home-newsletter-hub.html (which goes in a Code Embed on the home page).
+-->
+<style>
+  .etg-news-hub {
+    position: relative;
+    background: #000000;
+    color: #ffffff;
+    padding: 128px 24px 96px;
+    font-family: 'Barlow', 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  /* Fix 1a — red hairline handoff from the hero above */
+  .etg-news-hub::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(200,16,46,0) 15%,
+      rgba(200,16,46,0.5) 50%,
+      rgba(200,16,46,0) 85%,
+      transparent 100%);
+    z-index: 2;
+    pointer-events: none;
+  }
+  /* Fix 2 — off-axis red radial glow (subtle gravity, no blend mode) */
+  .etg-news-hub::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 700px 500px at 85% 15%, rgba(200,16,46,0.12), transparent 60%);
+    z-index: 1;
+    pointer-events: none;
+  }
+  /* Fix 1b — noise grain on its own layer, dialed way down */
+  .etg-news-hub__inner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.12 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 220px 220px;
+    background-repeat: repeat;
+    mix-blend-mode: overlay;
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .etg-news-hub * { box-sizing: border-box; }
+  .etg-news-hub__inner {
+    position: relative;
+    z-index: 3;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .etg-news-hub__inner > * { position: relative; z-index: 1; }
+  .etg-news-hub__eyebrow {
+    display: flex; align-items: center; gap: 16px; margin-bottom: 56px;
+  }
+  .etg-news-hub__eyebrow span {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: 13px; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #ff5c75; white-space: nowrap;
+    text-shadow: 0 0 24px rgba(200,16,46,0.4);
+  }
+  .etg-news-hub__eyebrow .rule {
+    flex: 1; height: 1px;
+    background: linear-gradient(90deg, rgba(200,16,46,0.6), rgba(200,16,46,0.1));
+  }
+  .etg-news-hub__grid {
+    display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start;
+  }
+
+  /* LEFT — Stay Updated card */
+  .etg-stay-card {
+    background: #111111;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 48px;
+    position: sticky; top: 24px;
+  }
+  .etg-stay-card h2 {
+    font-family: 'Oswald', 'Arial Narrow', sans-serif;
+    font-size: 56px; font-weight: 700; line-height: 0.95;
+    text-transform: uppercase; letter-spacing: -0.01em;
+    color: #ffffff; margin: 0;
+  }
+  .etg-stay-card p.lede {
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px; font-weight: 400; line-height: 1.6;
+    color: rgba(255,255,255,0.55);
+    margin: 16px 0 32px; max-width: 360px;
+  }
+  .etg-stay-card form { display: flex; flex-direction: column; gap: 12px; margin: 0; }
+  .etg-stay-card input[type="email"] {
+    background: #1a1a1a; border: 0;
+    height: 56px; padding: 0 20px; border-radius: 6px;
+    color: #ffffff; font-family: 'Barlow', sans-serif; font-size: 15px;
+    width: 100%; outline: none;
+    transition: box-shadow 200ms ease;
+  }
+  .etg-stay-card input[type="email"]::placeholder { color: rgba(255,255,255,0.30); }
+  .etg-stay-card input[type="email"]:focus { box-shadow: 0 0 0 2px rgba(200,16,46,0.5); }
+  .etg-stay-card button {
+    background: #c8102e; color: #ffffff; border: 0; cursor: pointer;
+    height: 56px; border-radius: 6px;
+    font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    transition: background 200ms ease, box-shadow 200ms ease;
+  }
+  .etg-stay-card button:hover { background: #a00d25; box-shadow: 0 0 24px rgba(200,16,46,0.4); }
+  .etg-stay-card .micro {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: rgba(255,255,255,0.35); margin: 16px 0 0;
+  }
+
+  /* RIGHT — issues stack */
+  .etg-issues { display: flex; flex-direction: column; }
+  .etg-pill {
+    display: inline-flex; align-items: center;
+    padding: 6px 14px; border: 1px solid #c8102e; border-radius: 999px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase; color: #c8102e;
+    align-self: flex-start; margin-bottom: 24px;
+  }
+
+  /* Featured row (April 2026 web article) */
+  .etg-featured {
+    display: flex; gap: 24px; align-items: flex-start;
+    padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+    text-decoration: none; color: inherit;
+    transition: background 200ms ease, padding-left 200ms ease;
+    border-radius: 8px;
+  }
+  .etg-featured:hover { background: rgba(255,255,255,0.02); padding-left: 16px; }
+  .etg-featured__cover {
+    width: 140px; height: 140px; border-radius: 6px; object-fit: cover;
+    flex-shrink: 0; background: #1a1a1a;
+  }
+  .etg-featured__meta { flex: 1; min-width: 0; }
+  .etg-featured__date {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase; color: #c8102e;
+    display: block; margin-bottom: 8px;
+  }
+  .etg-featured__title {
+    font-family: 'Oswald', sans-serif; font-size: 24px; font-weight: 700;
+    text-transform: uppercase; line-height: 1.1; color: #ffffff;
+    margin: 0 0 12px;
+  }
+  .etg-featured__excerpt {
+    font-family: 'Barlow', sans-serif; font-size: 14px; line-height: 1.6;
+    color: rgba(255,255,255,0.55); margin: 0 0 12px;
+  }
+  .etg-featured__cta {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; color: #c8102e;
+  }
+
+  /* PDF rows */
+  .etg-pdf-row {
+    display: flex; gap: 20px; align-items: center;
+    padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+    text-decoration: none; color: inherit;
+    transition: background 200ms ease, padding-left 200ms ease;
+    border-radius: 6px;
+  }
+  .etg-pdf-row:hover { background: rgba(255,255,255,0.02); padding-left: 16px; }
+  .etg-pdf-row__cover {
+    width: 80px; height: 80px; border-radius: 4px; object-fit: cover;
+    flex-shrink: 0; background: #1a1a1a;
+  }
+  .etg-pdf-row__meta { flex: 1; min-width: 0; }
+  .etg-pdf-row__date {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,255,255,0.45); display: block; margin-bottom: 4px;
+  }
+  .etg-pdf-row__title {
+    font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600;
+    line-height: 1.2; color: #ffffff; margin: 0;
+  }
+  .etg-pdf-row__badge {
+    flex-shrink: 0;
+    padding: 6px 12px; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.1em; color: rgba(255,255,255,0.7);
+    transition: border-color 200ms ease, color 200ms ease;
+  }
+  .etg-pdf-row:hover .etg-pdf-row__badge { border-color: #c8102e; color: #c8102e; }
+
+  /* Archive CTA */
+  .etg-archive-cta { display: flex; justify-content: flex-end; margin-top: 32px; }
+  .etg-archive-cta a {
+    display: inline-block;
+    padding: 14px 28px; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px;
+    background: transparent; text-decoration: none;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #ffffff;
+    transition: border-color 200ms ease, color 200ms ease, background 200ms ease;
+  }
+  .etg-archive-cta a:hover {
+    border-color: #c8102e; color: #c8102e; background: rgba(200,16,46,0.05);
+  }
+
+  /* Tablet */
+  @media (max-width: 991px) {
+    .etg-news-hub { padding: 104px 24px 80px; }
+    .etg-news-hub__grid { grid-template-columns: 1fr; gap: 48px; }
+    .etg-stay-card { position: static; padding: 40px; }
+    .etg-stay-card h2 { font-size: 48px; }
+  }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    .etg-news-hub { padding: 80px 20px 64px; }
+    .etg-news-hub__eyebrow { margin-bottom: 40px; }
+    .etg-stay-card { padding: 32px 24px; }
+    .etg-stay-card h2 { font-size: 40px; }
+    .etg-featured { flex-direction: column; gap: 16px; }
+    .etg-featured__cover { width: 100%; height: 220px; }
+    .etg-featured__title { font-size: 22px; }
+    .etg-pdf-row__cover { width: 64px; height: 64px; }
+    .etg-pdf-row__title { font-size: 16px; }
+    .etg-archive-cta { justify-content: center; }
+  }
+</style>
