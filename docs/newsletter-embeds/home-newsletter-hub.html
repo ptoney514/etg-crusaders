@@ -1,16 +1,10 @@
 <!--
-  ETG MIDWEST — HOME PAGE NEWSLETTER HUB (Code Embed body)
-  Drop this into ONE Code Embed on the home page.
-  Replaces the six existing newsletter blocks AND the current "Stay Updated" section.
-  Pairs with home-hub-styles.html (which goes in Page Settings → Custom Code → Inside <head>).
+  ETG MIDWEST — HOME PAGE NEWSLETTER HUB
+  June 2026 update: PDFs are legacy. Hub now shows only the live web articles
+  (June featured + April as a second web-article row). Older issues stay
+  accessible via the archive page.
 
-  PLACEHOLDERS — fill in 4 PDF URLs before publishing:
-    {{PDF_FEB_2026}}, {{PDF_DEC_2025}}, {{PDF_OCT_2025}}, {{PDF_AUG_2025}}
-  Grab these from the existing newsletter blocks' "Read More" links before deleting them.
-
-  COVER IMAGES — already wired to live CDN URLs from Webflow Assets.
-  These currently point at the existing assets your site uses (the ETG logo and the
-  newsletter-bg-16x9 image). Swap them later if you upload proper per-issue covers.
+  Pairs with home-hub-styles.html (in Page Settings → Custom Code → Inside <head>).
 -->
 
 <section class="etg-news-hub">
@@ -23,60 +17,29 @@
 
     <div class="etg-news-hub__grid">
 
-      <!-- ISSUES STACK (centered, single column) -->
       <div class="etg-issues">
 
-        <span class="etg-pill">Latest — Apr 2026</span>
+        <span class="etg-pill">Latest — Jun 2026</span>
 
-        <!-- Featured: April 2026 web article -->
-        <a class="etg-featured" href="/members/news/april-2026-dinner-bash-and-alumni-spotlight">
-          <img class="etg-featured__cover" src="https://cdn.prod.website-files.com/63e1902437bdfc4cd77ce3f6/6932d6f009f387d137159e5c_ETG-newsletter-bg-16x9.png" alt="April 2026 newsletter — Dinner Bash and Alumni Spotlight">
+        <!-- Featured: June 2026 web article -->
+        <a class="etg-featured" href="/members/news/june-2026-summer-is-here-alumni-spotlight">
+          <img class="etg-featured__cover" src="https://cdn.prod.website-files.com/63e1902437bdfc4cd77ce3f6/6932d6f009f387d137159e5c_ETG-newsletter-bg-16x9.png" alt="June 2026 newsletter — Alumni Spotlight and Summer Update">
           <div class="etg-featured__meta">
-            <span class="etg-featured__date">Apr 2026</span>
-            <h3 class="etg-featured__title">Dinner Bash + Alumni Spotlight</h3>
-            <p class="etg-featured__excerpt">Schedule reveal, May 2nd Dinner Bash at Cascio's, plus Q&amp;As with Chase Thompson (pro in London) and Amanda Woodring (Murren).</p>
+            <span class="etg-featured__date">Jun 2026</span>
+            <h3 class="etg-featured__title">Alumni Spotlight + Summer Update</h3>
+            <p class="etg-featured__excerpt">Spotlights on Jadin Booth (Samford) and Courtney Farmer (Rockhurst), spring results from all six Crusader teams, the July schedule, and how to help close the $45K funding gap.</p>
             <span class="etg-featured__cta">Read Article →</span>
           </div>
         </a>
 
-        <!-- PDF: Feb 2026 -->
-        <a class="etg-pdf-row" href="{{PDF_FEB_2026}}" target="_blank" rel="noopener">
-          <img class="etg-pdf-row__cover" src="https://cdn.prod.website-files.com/63e1902437bdfc4cd77ce3f6/63ff775a20e3b78326aef1c5_etg-256x256.png" alt="February 2026 newsletter cover">
+        <!-- April 2026 web article (web-article row variant) -->
+        <a class="etg-pdf-row etg-pdf-row--article" href="/members/news/april-2026-dinner-bash-and-alumni-spotlight">
+          <img class="etg-pdf-row__cover" src="https://cdn.prod.website-files.com/63e1902437bdfc4cd77ce3f6/6932d6f009f387d137159e5c_ETG-newsletter-bg-16x9.png" alt="April 2026 newsletter cover">
           <div class="etg-pdf-row__meta">
-            <span class="etg-pdf-row__date">Feb 2026</span>
-            <h4 class="etg-pdf-row__title">The Game That Keeps Giving</h4>
+            <span class="etg-pdf-row__date">Apr 2026</span>
+            <h4 class="etg-pdf-row__title">Dinner Bash + Alumni Spotlight</h4>
           </div>
-          <span class="etg-pdf-row__badge">PDF</span>
-        </a>
-
-        <!-- PDF: Dec 2025 -->
-        <a class="etg-pdf-row" href="{{PDF_DEC_2025}}" target="_blank" rel="noopener">
-          <img class="etg-pdf-row__cover" src="https://cdn.prod.website-files.com/63e1902437bdfc4cd77ce3f6/6932d6f009f387d137159e5c_ETG-newsletter-bg-16x9.png" alt="December 2025 newsletter cover">
-          <div class="etg-pdf-row__meta">
-            <span class="etg-pdf-row__date">Dec 2025</span>
-            <h4 class="etg-pdf-row__title">Lessons That Last a Lifetime</h4>
-          </div>
-          <span class="etg-pdf-row__badge">PDF</span>
-        </a>
-
-        <!-- PDF: Oct 2025 -->
-        <a class="etg-pdf-row" href="{{PDF_OCT_2025}}" target="_blank" rel="noopener">
-          <img class="etg-pdf-row__cover" src="https://cdn.prod.website-files.com/63e1902437bdfc4cd77ce3f6/63ff3ca93c7dc574c09d9cbc_etg.png" alt="October 2025 newsletter cover">
-          <div class="etg-pdf-row__meta">
-            <span class="etg-pdf-row__date">Oct 2025</span>
-            <h4 class="etg-pdf-row__title">Where Champions Go Next</h4>
-          </div>
-          <span class="etg-pdf-row__badge">PDF</span>
-        </a>
-
-        <!-- PDF: Aug 2025 -->
-        <a class="etg-pdf-row" href="{{PDF_AUG_2025}}" target="_blank" rel="noopener">
-          <img class="etg-pdf-row__cover" src="https://cdn.prod.website-files.com/63e1902437bdfc4cd77ce3f6/63ff3ca93c7dc574c09d9cbc_etg.png" alt="August 2025 newsletter cover">
-          <div class="etg-pdf-row__meta">
-            <span class="etg-pdf-row__date">Aug 2025</span>
-            <h4 class="etg-pdf-row__title">Building Champions On and Off the Court</h4>
-          </div>
-          <span class="etg-pdf-row__badge">PDF</span>
+          <span class="etg-pdf-row__badge">Read</span>
         </a>
 
         <div class="etg-archive-cta">
