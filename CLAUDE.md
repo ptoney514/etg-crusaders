@@ -20,7 +20,7 @@ Three places, each with a distinct job:
 
 | What | Where | Use it for |
 |------|-------|-----------|
-| **Content planning** | [ETG Newsletter Pipeline](https://app.notion.com/p/96f806adfd5b41f788ccce5e558bcd1b) (Notion) | Upcoming issues, who the alumni spotlight is, photo/roster/coach-message status, blockers, Resend send stats |
+| **Content planning** | [ETG Newsletter Pipeline](https://app.notion.com/p/96f806adfd5b41f788ccce5e558bcd1b) (Notion) | Upcoming issues, who the alumni spotlight is, photo/roster/coach-message status, blockers |
 | **Shipped-issue history** | [`docs/newsletter-embeds/NEWSLETTER-LOG.md`](docs/newsletter-embeds/NEWSLETTER-LOG.md) | "Did we ship in <month>?" — one row per issue, live URLs, cadence at a glance |
 | **How to build one** | [`docs/newsletter-embeds/NEXT-NEWSLETTER-PLAYBOOK.md`](docs/newsletter-embeds/NEXT-NEWSLETTER-PLAYBOOK.md) | Step-by-step recipe, the Scar Tissue section, and the per-issue process changelog |
 
@@ -28,7 +28,7 @@ Per-issue embed source lives in `docs/newsletter-embeds/<month>-<year>/`.
 
 ### When an issue ships, update all three
 
-1. Notion row → Status `Done`, fill in Live URL + Resend stats
+1. Notion row → Status `Done`, fill in Live URL
 2. `NEWSLETTER-LOG.md` → new row
 3. Playbook → append a Process Changelog entry
 
@@ -44,7 +44,8 @@ went live.
   in the Designer.
 - **Designer MCP calls need a foregrounded Designer tab** or they time out. Data API calls
   (`data_*`, `asset_tool`) work regardless.
-- Resend send data is not accessible from here — it has to be copied in from the Resend dashboard.
+- **No email engagement stats exist.** Doug distributes by sending out a link, not a Resend
+  broadcast — there are no open rates or recipient counts anywhere. Don't propose tracking them.
 
 ## Conventions
 

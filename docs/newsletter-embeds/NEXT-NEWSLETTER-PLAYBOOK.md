@@ -44,10 +44,11 @@ Notion database — one page per issue.
    what's actually in hand, and put anything still missing in `Blockers` so it's visible.
 3. **Draft the stories with Claude.** Raw notes → written alumni spotlights and section copy.
    Set `Stories drafted` to `Drafting with Claude`, then `Final`.
-4. **Build the email in Resend**, then send it. Update `Resend build` as it moves.
-5. **Record the send** — date, recipients, open rate — in the Notion row. This is the only moment
-   that data is easy to grab; nothing downstream can recover it.
-6. Save the sent HTML body. That is the input to Phase 1.
+4. **Build the email in Resend.** Update `Resend build` as it moves.
+5. Save the finished HTML body. That is the input to Phase 1.
+
+Distribution is Doug's — he sends out a link. There is no broadcast to a list and no engagement
+data to record, so don't go looking for send stats.
 
 > **Fill in as you go:** the specifics of steps 3–4 (how stories get prompted, whether the Resend
 > email is built in the dashboard or from a template) aren't documented yet. Next issue, write down
