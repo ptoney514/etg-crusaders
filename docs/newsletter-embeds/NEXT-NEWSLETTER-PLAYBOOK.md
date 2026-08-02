@@ -156,3 +156,39 @@ Split at `<table>` boundaries, never at `<tr>` boundaries.
 - Phase 6 (production publish): 30 seconds
 
 Total: **~20 minutes** if you follow this playbook. The June 2026 issue took ~90 minutes because we hit every scar listed above for the first time.
+
+---
+
+## Process changelog
+
+**Append a new entry every issue. Never rewrite an old one** — the point is to see how the process drifted and why.
+
+Template to copy:
+
+```
+### <Month Year>
+
+- **What changed:**
+- **What broke:**
+- **Time taken:** (vs. ~20 min budget)
+- **New scar tissue:** (add to the section above if it will recur)
+```
+
+---
+
+### June 2026
+
+- **What changed:** First issue with the playbook itself — everything above was written during this issue. Split grew from 3 embeds (April) to 7 because the issue ran long. Home hub redesigned: PDF rows dropped entirely in favor of web-article rows only, with older issues pushed to the archive page.
+- **What broke:** All seven scars in the section above, discovered the hard way. The `imgraw` bug (#1) was the worst — images silently vanished or rendered as an invalid tag with no error.
+- **Time taken:** ~90 minutes.
+- **New scar tissue:** Scars #1–#7 above all originate here.
+- **Drift to watch:** The shipped slug (`june-2026-summer-is-here-alumni-spotlight`) did not match what the issue README specified, and the shipped hub layout dropped the PDF rows the README still described. Both were corrected after the fact. **Write the README to match what shipped, not what you planned.**
+
+---
+
+### April 2026
+
+- **What changed:** First web-article issue — prior issues were PDF-only. Established the 3-embed structure and the `/members/news/<slug>` page pattern that everything since duplicates from.
+- **What broke:** Not recorded at the time (this changelog did not exist yet).
+- **Time taken:** Unknown.
+- **New scar tissue:** None recorded.

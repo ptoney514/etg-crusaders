@@ -59,12 +59,14 @@ When the article page is live and verified, update the home page newsletter hub:
 6. The new home hub keeps the same `{{PDF_FEB_2026}}`, `{{PDF_DEC_2025}}`, `{{PDF_OCT_2025}}` placeholders — find/replace them with the same URLs you used in the original April-era hub. (Aug 2025 PDF row was removed.)
 7. Publish to staging → verify at `https://etgmidwest.webflow.io/` → publish to production.
 
-The new hub layout:
+The hub layout **as actually shipped** (the plan changed mid-flight — the PDF rows were dropped
+in favor of web articles only, with older issues reachable via the archive page):
 
 | Row | Issue | Link target | Badge |
 |-----|-------|-------------|-------|
 | Featured | June 2026 — Alumni Spotlight + Summer Update | `/members/news/june-2026-summer-is-here-alumni-spotlight` | Read Article → |
 | 2 | April 2026 — Dinner Bash + Alumni Spotlight | `/members/news/april-2026-dinner-bash-and-alumni-spotlight` | Read |
-| 3 | Feb 2026 — The Game That Keeps Giving | PDF | PDF |
-| 4 | Dec 2025 — Lessons That Last a Lifetime | PDF | PDF |
-| 5 | Oct 2025 — Where Champions Go Next | PDF | PDF |
+| 3 | — | `/members/newsletters` | View Full Archive → |
+
+Because PDFs are no longer in the hub, step 6 above (the `{{PDF_*}}` find/replace) no longer
+applies — the shipped `home-newsletter-hub.html` has no PDF placeholders left in it.
