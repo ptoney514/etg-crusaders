@@ -8,9 +8,11 @@ separate/parallel build — do not assume a change here is reflected on the live
 
 ## Newsletter work
 
-The alumni newsletter. **Client-driven — Doug sends content on no fixed schedule.** There is no
-monthly deadline; an issue exists when content arrives. Empty months in the log are not misses,
-and don't propose reminders or cadence-chasing against them.
+The alumni newsletter. **Every other month** — Aug, Oct, Dec, Feb, Apr, Jun — confirmed by Doug
+(2026-06-24: *"We go every other month"*). Odd months are off months by design, not misses.
+
+Within that rhythm the timing floats: Doug collects alumni spotlight responses and sends material
+when he has it, usually the last week of the prior month, sometimes in pieces. Don't chase a date.
 
 ```
 Doug sends content  →  Claude drafts stories  →  build + send in Resend  →  Webflow via MCP

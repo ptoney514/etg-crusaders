@@ -39,15 +39,21 @@ capture. Don't add columns for them.
 
 ---
 
-## Cadence at a glance
+## Cadence
+
+**Every other month, by design.** Doug, 2026-06-24: *"We go every other month and did one in June
+so next newsletter will be in August."*
 
 ```
 2025:  Aug ●   Sep ○   Oct ?   Nov ○   Dec ●
-2026:  Jan ○   Feb ●   Mar ○   Apr ●   May ○   Jun ●   Jul ○
+2026:  Jan ○   Feb ●   Mar ○   Apr ●   May ○   Jun ●   Jul ○   Aug ●
 ```
 
-`●` shipped · `○` no issue · `?` unconfirmed
+`●` issue · `○` off month by design · `?` unconfirmed
 
-**There is no target cadence, and the gaps are not misses.** Issues are client-driven: Doug sends
-content when he has it, on no fixed schedule. An issue exists when content arrives. Don't read the
-empty months as a backlog or set up reminders against them.
+The odd months are not gaps or misses — they're the off months. Within that rhythm the exact timing
+still floats, because it depends on when Doug finishes collecting spotlight responses. He typically
+sends material in the last week of the prior month.
+
+Note the pattern makes **Oct 2025 very likely to exist** — it's the one slot that breaks an
+otherwise perfect Aug/Oct/Dec/Feb/Apr/Jun/Aug sequence. See the open question above.
