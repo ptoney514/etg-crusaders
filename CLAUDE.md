@@ -8,7 +8,15 @@ separate/parallel build — do not assume a change here is reflected on the live
 
 ## Newsletter work
 
-The recurring monthly-ish alumni newsletter. Three places, each with a distinct job:
+The alumni newsletter. **Client-driven — Doug sends content on no fixed schedule.** There is no
+monthly deadline; an issue exists when content arrives. Empty months in the log are not misses,
+and don't propose reminders or cadence-chasing against them.
+
+```
+Doug sends content  →  Claude drafts stories  →  build + send in Resend  →  Webflow via MCP
+```
+
+Three places, each with a distinct job:
 
 | What | Where | Use it for |
 |------|-------|-----------|

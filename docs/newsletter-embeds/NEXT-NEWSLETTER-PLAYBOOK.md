@@ -6,11 +6,52 @@ The step-by-step recipe for adding a new alumni newsletter to ETG Midwest, captu
 
 ---
 
+## How an issue starts
+
+**Issues are client-driven and land on no fixed schedule.** Doug sends content when he has it —
+there is no monthly deadline to hit and no reason to chase one. An issue begins when content
+arrives, not on a calendar date.
+
+The full pipeline:
+
+```
+Doug sends content  →  Claude drafts stories  →  build + send in Resend  →  Webflow via MCP
+   (irregular)          (Phase 0)                  (Phase 0)                 (Phases 1-6)
+```
+
+Phases 1–6 below cover only the last leg — taking finished Resend HTML and getting it onto the
+website. That is the fiddly part, which is why it has the most detail here. It is not the start.
+
+Track the whole thing in the [ETG Newsletter Pipeline](https://app.notion.com/p/96f806adfd5b41f788ccce5e558bcd1b)
+Notion database — one page per issue.
+
+---
+
 ## Prerequisites
 
-- Resend HTML email body for the new issue, in hand
+- Content from Doug for the new issue (Phase 0), or finished Resend HTML in hand (Phase 1 onward)
 - Webflow Designer access to the ETG Midwest site (`etgmidwest.com`)
 - Claude with the Webflow MCP enabled (Designer app + Data API)
+
+---
+
+## Phase 0 — Content intake and story drafting
+
+1. **Log the intake.** Create a page in the Notion pipeline DB, set `Content received` to the date
+   Doug sent it. That date is the issue's real start.
+2. **Inventory what arrived.** Doug's batches vary — some issues come with photos and rosters,
+   some don't. Set the `Photos` / `Rosters` / `Coach message` / `Schedule block` fields to reflect
+   what's actually in hand, and put anything still missing in `Blockers` so it's visible.
+3. **Draft the stories with Claude.** Raw notes → written alumni spotlights and section copy.
+   Set `Stories drafted` to `Drafting with Claude`, then `Final`.
+4. **Build the email in Resend**, then send it. Update `Resend build` as it moves.
+5. **Record the send** — date, recipients, open rate — in the Notion row. This is the only moment
+   that data is easy to grab; nothing downstream can recover it.
+6. Save the sent HTML body. That is the input to Phase 1.
+
+> **Fill in as you go:** the specifics of steps 3–4 (how stories get prompted, whether the Resend
+> email is built in the dashboard or from a template) aren't documented yet. Next issue, write down
+> what you actually do here — it's the least-repeatable part of the process.
 
 ---
 

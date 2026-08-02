@@ -45,4 +45,6 @@ When an issue ships, fill in:
 
 `●` shipped · `○` no issue · `?` unconfirmed
 
-Roughly every other month in practice, not monthly. Worth deciding whether the target cadence is monthly or bimonthly and stating it here — the gaps currently look like misses rather than intent.
+**There is no target cadence, and the gaps are not misses.** Issues are client-driven: Doug sends
+content when he has it, on no fixed schedule. An issue exists when content arrives. Don't read the
+empty months as a backlog or set up reminders against them.
