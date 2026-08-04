@@ -18,8 +18,8 @@ actually sent. Write drafts alongside it.
 | ETG Girls 15U | ✅ From Dr. Jason Dolliver — **3SSB National Champions** |
 | ETG Girls 16U | ✅ Received 2026-08-04 |
 | ETG Girls 17U | ✅ Received 2026-08-04 |
-| Nick headshot | ⚠️ URL only — https://wusports.com/sports/mens-basketball/roster/coaches/nick-ferrarini/1453 (needs pulling + upload to Webflow Assets) |
-| Brooke headshot | ⚠️ `Brooke Delano.jpg` attached to the 2026-07-29 email (needs downloading + upload) |
+| Nick headshot | ✅ On R2 — `https://cdn.tnebasketball.com/newsletter/aug-2026/nick-ferrarini.jpg` (1200×1500, pulled from the Washburn roster page) |
+| Brooke headshot | ❌ **Blocked.** `Brooke Delano.jpg` is a Gmail attachment on the 2026-07-29 email; the Gmail MCP exposes an attachment id but has no download tool. Save it from Gmail to `~/Downloads/` and it can go up in one command. |
 | Funding gap figures | ❌ **Not received.** `{{FUNDING_GAP}}` / `{{ALUMNI_GOAL}}` in part 6. June's $45K/$15K are stale — that was the gap for the season now finished. |
 | Rosters / schedule | n/a — season is over; June's roster + July schedule section was dropped for this issue |
 

@@ -80,7 +80,20 @@ data to record, so don't go looking for send stats.
 
 **Before any HTML inserts, upload every image to Webflow Assets via MCP.**
 
-Source images live on Cloudflare R2 at `https://cdn.tnebasketball.com/newsletter/...`. Upload each via `asset_tool > upload_image_by_url`. The response gives you a Webflow CDN URL — use THAT in the `src` attributes of your HTML chunks, not the R2 URL.
+Source images live on Cloudflare R2, bucket **`tne-bucket`**, served at `https://cdn.tnebasketball.com/<key>`. Per-issue images go under `newsletter/<month>-<year>/`; evergreen assets live under `newsletter/headers/`.
+
+Upload with wrangler (already authenticated):
+
+```bash
+npx wrangler r2 object put "tne-bucket/newsletter/<month>-<year>/<name>.jpg" \
+  --file=<local.jpg> --content-type=image/jpeg --remote
+```
+
+**`--remote` is required** — without it wrangler writes to a local simulation and the CDN 404s.
+
+Use the R2 URL in the `src` attributes while building the **Resend email**. Later, when converting to Webflow embeds, upload each to Webflow Assets via `asset_tool > upload_image_by_url` and swap the `src` to the Webflow CDN URL.
+
+**Gmail attachments can't be fetched by MCP.** The Gmail server returns an attachment id but exposes no download tool, so any photo Doug attaches has to be saved out of Gmail by hand before it can be uploaded. Photos he sends as *links* can be pulled with curl directly.
 
 Reuse evergreen assets from June (header banner, donation chart/QR, sponsor logos, ETG small logo). Only new player photos and per-issue rosters need fresh uploads.
 
