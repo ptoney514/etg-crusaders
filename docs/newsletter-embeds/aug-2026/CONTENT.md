@@ -19,7 +19,7 @@ actually sent. Write drafts alongside it.
 | ETG Girls 16U | ✅ Received 2026-08-04 |
 | ETG Girls 17U | ✅ Received 2026-08-04 |
 | Nick headshot | ✅ On R2 — `https://cdn.tnebasketball.com/newsletter/aug-2026/nick-ferrarini.jpg` (1200×1500, pulled from the Washburn roster page) |
-| Brooke headshot | ❌ **Blocked.** `Brooke Delano.jpg` is a Gmail attachment on the 2026-07-29 email; the Gmail MCP exposes an attachment id but has no download tool. Save it from Gmail to `~/Downloads/` and it can go up in one command. |
+| Brooke headshot | ✅ On R2 — `https://cdn.tnebasketball.com/newsletter/aug-2026/brooke-delano.jpg` (1200×1500, saved out of Gmail by hand — the Gmail MCP cannot download attachments) |
 | Funding gap figures | ✅ Received 2026-08-05. $5,000 raised in alumni support, $10,000 trimmed by cost reductions, **~$30,000 still outstanding**. Doug gave no separate alumni-goal number, so the copy uses only the figures he provided. |
 | Rosters / schedule | n/a — season is over; June's roster + July schedule section was dropped for this issue |
 
