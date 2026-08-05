@@ -44,8 +44,32 @@ Notion database — one page per issue.
    what's actually in hand, and put anything still missing in `Blockers` so it's visible.
 3. **Draft the stories with Claude.** Raw notes → written alumni spotlights and section copy.
    Set `Stories drafted` to `Drafting with Claude`, then `Final`.
-4. **Build the email in Resend.** Update `Resend build` as it moves.
-5. Save the finished HTML body. That is the input to Phase 1.
+4. **Build the email in Resend.** Assemble the issue as a single email document
+   (`resend-email.html`) — full doctype, the responsive `<style>` block, a hidden preheader div,
+   and the `{{{RESEND_UNSUBSCRIBE_URL}}}` token in the footer. Images should point at their R2
+   CDN URLs, which are public and load fine in email.
+
+   A broadcast can be created over the API instead of pasting into the editor. The key lives at
+   `~/.config/resend/key` (mode 600, no trailing newline):
+
+   ```bash
+   KEY=$(cat ~/.config/resend/key); curl -s -X POST https://api.resend.com/broadcasts \
+     -H "Authorization: Bearer $KEY" -H "Content-Type: application/json" \
+     --data-binary @payload.json
+   ```
+
+   Payload needs `name`, `audience_id`, `from`, `subject`, `html`.
+
+   - **Use the `Test-Pernell` audience (`a77a77b8-19c7-4bec-929f-60ce2f17a33f`) when creating**, so
+     an accidental send goes nowhere. Switch to `ETG Newsletter`
+     (`df337721-c9b5-4296-aac1-9f3c0d91dbf0`) only when it is genuinely ready.
+   - Send **from `pernell@tnebasketball.com`** — that domain is verified. `etgmidwest.com` is
+     registered in Resend but its status is `not_started`, so it cannot send.
+   - **Use `curl`, not Python `urllib`** — Cloudflare blocks the default urllib user-agent with a
+     403 / `error code: 1010` that looks like an auth failure but is not.
+   - Don't set `preview_text` if the HTML already carries a preheader div; you'll get both.
+
+5. Update `Resend build` as it moves. Save the finished HTML body — it is also the input to Phase 1.
 
 Distribution is Doug's — he sends out a link. There is no broadcast to a list and no engagement
 data to record, so don't go looking for send stats.
