@@ -20,21 +20,24 @@ actually sent. Write drafts alongside it.
 | ETG Girls 17U | ✅ Received 2026-08-04 |
 | Nick headshot | ✅ On R2 — `https://cdn.tnebasketball.com/newsletter/aug-2026/nick-ferrarini.jpg` (1200×1500, pulled from the Washburn roster page) |
 | Brooke headshot | ❌ **Blocked.** `Brooke Delano.jpg` is a Gmail attachment on the 2026-07-29 email; the Gmail MCP exposes an attachment id but has no download tool. Save it from Gmail to `~/Downloads/` and it can go up in one command. |
-| Funding gap figures | ❌ **Not received.** `{{FUNDING_GAP}}` / `{{ALUMNI_GOAL}}` in part 6. June's $45K/$15K are stale — that was the gap for the season now finished. |
+| Funding gap figures | ✅ Received 2026-08-05. $5,000 raised in alumni support, $10,000 trimmed by cost reductions, **~$30,000 still outstanding**. Doug gave no separate alumni-goal number, so the copy uses only the figures he provided. |
 | Rosters / schedule | n/a — season is over; June's roster + July schedule section was dropped for this issue |
 
 **Content is complete except the funding figures.** Everything else is drafted.
 
 ## Editorial decisions made in the draft
 
-- **Two players omitted from the 16U list.** Doug's source listed *Alexys Guenchcht (2028)* and
-  *Hallie Garner (2029)* as "currently uncommitted with no offers." Publishing that next to
-  teammates' offer lists singles out two kids for not having offers yet. Both lines were dropped.
-  Restore them only if Doug specifically wants them.
+- **Two players omitted from the 16U list — confirmed by Doug 2026-08-05.** His source listed
+  *Alexys Guenchcht (2028)* and *Hallie Garner (2029)* as "currently uncommitted with no offers."
+  Doug: *"Best to not include and single out....only list offers or commitments that we know of."*
+  **Treat this as the standing rule for future issues:** name offers and commitments only, never
+  their absence.
 - **15U condensed per Doug's guidance** ("keep it to team success and mentioned offers"). The full
   roster list and Adrienne Ross's season-ending knee injury were left out.
-- **Nick's Q4 ends early.** His source answer stops mid-word ("...as I still"); the draft closes at
-  the last complete sentence. Still worth asking Doug for the rest.
+- **Nick's Q4 tail supplied by Doug 2026-08-05** — full closing line is now
+  "...an awesome support system around me as I still try to accomplish my coaching dreams."
+- **Championship line added to the coach's message** at Doug's request ("Yessir and I trust your
+  word smithing"). Drafted in his voice; he has not seen the exact wording yet.
 - **"STAY PATIENT" → "Stay patient"** in Nick's Q2 — all-caps reads as shouting in the serif body.
 - Standardized `KayTee`/`Kaytee` → **Kaytee Irons**; `Cornhusker's` → **Cornhuskers**.
 - **`Alexys Guenchcht`** is an unusual spelling and may be a typo in Doug's source — worth
