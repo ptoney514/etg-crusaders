@@ -12,6 +12,7 @@ Companion docs:
 
 | Issue | Title | Format | Live URL / file | Shipped | Notes |
 |-------|-------|--------|-----------------|---------|-------|
+| Aug 2026 | Another Summer in the Books | Web article (6 embeds) | [`/members/news/august-2026-another-summer-in-the-books`](https://etgmidwest.com/members/news/august-2026-another-summer-in-the-books) | 2026-08-12 | 15U girls won the Adidas 3SSB National Championship — the issue's lede. Spotlights: Nick Ferrarini (Washburn), Brooke Delano (Roncalli Catholic). First issue built entirely over the Data API with the Designer closed. |
 | Jun 2026 | Alumni Spotlight + Summer Update | Web article (7 embeds) | [`/members/news/june-2026-summer-is-here-alumni-spotlight`](https://etgmidwest.com/members/news/june-2026-summer-is-here-alumni-spotlight) | 2026-06-03 | Jadin Booth (Samford) + Courtney Farmer (Rockhurst). Longest issue to date. Hit every Webflow MCP scar — see playbook. |
 | Apr 2026 | Dinner Bash + Alumni Spotlight | Web article (3 embeds) | [`/members/news/april-2026-dinner-bash-and-alumni-spotlight`](https://etgmidwest.com/members/news/april-2026-dinner-bash-and-alumni-spotlight) | 2026-04-08 | First web-article issue; canonical template we duplicate from. |
 | Feb 2026 | The Game That Keeps Giving / Help ETG Build Tomorrow's Leaders | PDF | `newsletters/ETG Newsletter February 2026.pdf` | 2026-02-01 | Kelsey Woodard (Davis), Sam Griesel. |
@@ -46,7 +47,7 @@ so next newsletter will be in August."*
 
 ```
 2025:  Aug ●   Sep ○   Oct ?   Nov ○   Dec ●
-2026:  Jan ○   Feb ●   Mar ○   Apr ●   May ○   Jun ●   Jul ○   Aug ●
+2026:  Jan ○   Feb ●   Mar ○   Apr ●   May ○   Jun ●   Jul ○   Aug ●   Sep ○   Oct →
 ```
 
 `●` issue · `○` off month by design · `?` unconfirmed

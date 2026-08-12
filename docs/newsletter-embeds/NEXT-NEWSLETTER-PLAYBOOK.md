@@ -295,6 +295,27 @@ Template to copy:
 
 ---
 
+### August 2026
+
+- **What changed:** Everything about the Webflow leg. Webflow MCP 2.0.1 made Code Embed content
+  readable and writable (`data_element_settings_tool`), and moved the element tools onto a headless
+  Data API surface. The entire issue — page creation, all six content sections, and the home hub —
+  was built **with the Designer closed**. `whtml_builder` was not used at all.
+- **What broke:** Nothing on the Webflow side. Time went instead into discovering the new
+  capabilities; the old playbook actively pointed the wrong way on three counts (see below).
+- **Time taken:** Webflow leg roughly 15 minutes of actual work.
+- **New scar tissue:** None new. Three retired — #3 fixed outright, #1 and #2 no longer reachable
+  from this workflow.
+- **Process notes:**
+  - This issue was built **backwards** — the six Webflow parts were authored first, then wrapped
+    into a single-file Resend email afterward. The playbook assumes the opposite order. It worked,
+    but authoring the email first remains the cleaner path.
+  - Resend broadcasts can be created over the API (Phase 0). Cloudflare 403s Python urllib.
+  - Doug set a standing content rule: **list offers and commitments only, never their absence.**
+    Two players his notes marked "uncommitted with no offers" were left out at his direction.
+
+---
+
 ### June 2026
 
 - **What changed:** First issue with the playbook itself — everything above was written during this issue. Split grew from 3 embeds (April) to 7 because the issue ran long. Home hub redesigned: PDF rows dropped entirely in favor of web-article rows only, with older issues pushed to the archive page.
