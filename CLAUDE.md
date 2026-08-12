@@ -44,8 +44,9 @@ went live.
   inside `<a>` survives but becomes an invalid `<imgraw>` tag. Full fix recipe in the playbook.
 - **Code Embed inner HTML is not writable via MCP.** The home page hub must be pasted manually
   in the Designer.
-- **Designer MCP calls need a foregrounded Designer tab** or they time out. Data API calls
-  (`data_*`, `asset_tool`) work regardless.
+- **Designer MCP calls need a foregrounded Designer tab** or they fail with "Unable to connect to
+  Webflow Designer." `data_*` REST calls work regardless — but **`asset_tool` is a Designer tool
+  despite the name** and does need the Designer open.
 - **No email engagement stats exist.** Doug distributes by sending out a link, not a Resend
   broadcast — there are no open rates or recipient counts anywhere. Don't propose tracking them.
 

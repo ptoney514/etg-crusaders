@@ -123,11 +123,25 @@ Reuse evergreen assets from June (header banner, donation chart/QR, sponsor logo
 
 ---
 
-## Phase 3 — Duplicate the article page in Designer
+## Phase 3 — Duplicate the article page (Data API, no Designer needed)
 
-1. Open Webflow Designer for ETG Midwest. Keep the tab in the foreground.
-2. In the Pages panel, **right-click the April 2026 page → Duplicate**. (We always duplicate April, not the most recent — April is the canonical template.)
-3. Rename the duplicate. **Don't worry about the slug yet** — Webflow's auto-slug for em-dashes is ugly; we'll fix it via MCP.
+**This is a Data API call — it works without the Designer open.** Earlier versions of this playbook
+said to duplicate by hand in the Designer; that is not necessary.
+
+`data_pages_tool > create_page` with:
+
+- `duplicateOf`: the **April 2026** page id `69d7004022c47fdd772c25d4` (April is the canonical
+  template — always duplicate April, not the most recent issue)
+- `parentFolderId`: `67e49048a2f72c721aec28bb` (the `/members/news/` folder)
+- `slug`: the clean kebab slug, set correctly here
+- `draft: true` — so a stray site publish can't push a half-built page live
+- `seo.title`, `seo.description`, `openGraph.titleCopied/descriptionCopied: true`
+
+Setting the slug in this call **avoids Scar Tissue #6 entirely** — there is never an auto-generated
+em-dash slug to clean up.
+
+Remember to flip `draft: false` (via `update_page_settings`) before the staging publish, or the page
+will not publish at all.
 
 ---
 
@@ -209,7 +223,15 @@ You cannot programmatically write the HTML inside an HtmlEmbed element. The `cod
 
 ### 4. Designer MCP requires a foregrounded Designer tab
 
-Background, minimized, or idle tabs → every `de_*` or `element_*` MCP call timeouts. Data API calls (`data_*`, `asset_tool`) work fine without the Designer being open.
+Background, minimized, or idle tabs → every Designer-backed MCP call fails with "Unable to connect
+to Webflow Designer."
+
+**`asset_tool` is a Designer tool, not a Data API tool** — despite the name it needs the Designer
+open, and its own description says so ("Designer Tool - Upload an image..."). An earlier version of
+this playbook claimed it worked without the Designer. It does not.
+
+What genuinely works with the Designer closed: `data_pages_tool`, `data_sites_tool`, and the other
+`data_*` REST tools — including `create_page` (Phase 3) and `publish_site` (Phase 6).
 
 ### 5. Snapshots don't apply page `<head>` CSS
 
