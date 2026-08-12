@@ -170,19 +170,24 @@ This is where Claude (or you with the MCP) does the heavy lifting. **All steps b
 
 ---
 
-## Phase 5 — Update the home page hub
+## Phase 5 — Update the home page hub (Data API, no Designer needed)
 
-**The home hub is a Code Embed (HtmlEmbed) — its inner HTML is NOT writable via MCP. This part is manual.**
+**No longer a manual paste** — Code Embed content is writable now (Scar #3).
 
-1. Open `docs/newsletter-embeds/home-newsletter-hub.html`. Edit it so:
-   - Featured row points at the new newsletter (slug, title, excerpt, "Latest — <Month> <Year>" pill)
+1. Edit `docs/newsletter-embeds/home-newsletter-hub.html` so:
+   - Featured row points at the new issue (slug, title, excerpt, "Latest — <Month> <Year>" pill)
    - The previous featured drops to the secondary "Read" row
    - The old secondary row falls off
-2. In Webflow Designer, switch to the Home page.
-3. Find the newsletter hub Code Embed (in `Block "News"` near the top of the page). Double-click it.
-4. Select all, paste the new contents of `home-newsletter-hub.html`. Save & Close.
-5. If the hub CSS changed, paste the new `home-hub-styles.html` contents into Home → Page Settings → Custom Code → "Inside `<head>` tag".
-6. Publish to staging (same as Phase 4 step 10), verify with Cmd-Shift-R.
+2. Find the hub embed — `data_element_tool > query_elements` on the **Home page**
+   (`63e1902437bdfc04277ce3f7`) filtering `type: "HtmlEmbed"`. Two come back; the hub is the one
+   **without** the `global-styles` class. Confirm by reading its code before writing.
+3. Write it with `data_element_settings_tool > set_settings`, key `code`.
+4. If the hub CSS changed, that still lives in Home → Page Settings → Custom Code, or use
+   `data_scripts_tool`.
+5. Publish to staging and verify.
+
+**Verify against the rendered page, not just a string search** — `.etg-news-hub` appears first in
+the page `<head>` CSS. Match on `<section class="etg-news-hub"` to find the actual markup.
 
 ---
 
@@ -203,6 +208,10 @@ Verify live URLs:
 
 ## Scar Tissue (READ BEFORE STARTING)
 
+> **Scars #1 and #2 no longer apply to the newsletter workflow.** They are properties of
+> `whtml_builder`, which we no longer use — content now goes into Code Embeds (see #3). Keep them
+> documented for any future work that does build real Webflow elements from HTML.
+
 ### 1. `whtml_builder` mangles `<img>` tags
 
 When you pass HTML containing `<img>` tags to `whtml_builder`:
@@ -217,9 +226,18 @@ CSS classes you write in source HTML do NOT come through as classes — Webflow 
 
 **Implication:** The home hub MUST be a Code Embed (it relies on `.etg-news-hub`, `.etg-featured` etc.). The article pages can use whtml_builder because all their styling is inline.
 
-### 3. HtmlEmbed inner code is not writable via MCP
+### 3. ~~HtmlEmbed inner code is not writable via MCP~~ — FIXED as of MCP 2.0.1
 
-You cannot programmatically write the HTML inside an HtmlEmbed element. The `code` setting is not exposed. **Don't remove an HtmlEmbed without a backup plan** — once it's gone, you have to manually re-paste in Designer.
+**This scar is gone.** Code Embed content is now both readable and writable headlessly:
+
+- read: `data_element_settings_tool > get_settings` with `value_type: "code"`
+- write: `data_element_settings_tool > set_settings`, key `code`, via `static_text.value`
+
+Create new ones with `data_element_builder` (`element_schema: { type: "HtmlEmbed" }`), then set the
+code in a second call — `settings` at creation time only applies to DOM-type elements.
+
+**This is now the preferred way to build the article page, replacing `whtml_builder` entirely**,
+which also makes Scars #1 and #2 irrelevant for this workflow (see below).
 
 ### 4. Designer MCP requires a foregrounded Designer tab
 

@@ -29,6 +29,23 @@ actually sent. Write drafts alongside it.
 
 **Content is complete except the funding figures.** Everything else is drafted.
 
+## Webflow article page
+
+**Page id `6a7cfbc8dd374b1f57aabe32`** → `/members/news/august-2026-another-summer-in-the-books`
+
+Built entirely over the **Data API with the Designer closed** — see the playbook's rewritten
+Phases 3–5. The six `embed-part-*.html` files were written straight into Code Embeds via
+`data_element_settings_tool > set_settings`, which is now possible and replaces the old
+`whtml_builder` route.
+
+Three deliberate differences between the email parts and what is on the Webflow page:
+
+| Email version | Webflow version | Why |
+|---|---|---|
+| `<img>` wrapped in a dummy `<a>` | bare `<img>` | The anchor existed only to survive `whtml_builder`'s imgraw bug. Code Embeds don't parse the markup, so it's unnecessary. |
+| Banner from the Webflow CDN | banner from R2 | Matches the April/June page convention of serving newsletter images from R2. |
+| "You're receiving this because you're part of the ETG Crusaders family." | removed | Email language; reads wrong on a web page. |
+
 ## Editorial decisions made in the draft
 
 - **Two players omitted from the 16U list — confirmed by Doug 2026-08-05.** His source listed
