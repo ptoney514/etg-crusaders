@@ -17,13 +17,27 @@ Companion docs:
 | Apr 2026 | Dinner Bash + Alumni Spotlight | Web article (3 embeds) | [`/members/news/april-2026-dinner-bash-and-alumni-spotlight`](https://etgmidwest.com/members/news/april-2026-dinner-bash-and-alumni-spotlight) | 2026-04-08 | First web-article issue; canonical template we duplicate from. |
 | Feb 2026 | The Game That Keeps Giving / Help ETG Build Tomorrow's Leaders | PDF | `newsletters/ETG Newsletter February 2026.pdf` | 2026-02-01 | Kelsey Woodard (Davis), Sam Griesel. |
 | Dec 2025 | Lessons That Last a Lifetime | PDF | `newsletters/ETG Newsletter 12_2025.pdf` | 2025-12-06 | Holiday reflections + alumni updates. |
+| Oct 2025 | Where Champions Go Next | PDF | `newsletters/ETG Newsletter 10_2025.pdf` | 2025-10-08 | Spotlights: Triston Simpson (2016) and Clare Tokheim (2009). Opens with the Crusaders' 1993 founding and partner history, plus the first ETG Youth tournament (Dec 12–14, Iowa West Fieldhouse). Arrived from Tina Gould as a Google Doc; Pernell converted it to PDF, which is why the file had no month in its name until 2026-08-12. |
 | Aug 2025 | Summer Recap and Alumni Spotlights | PDF | `newsletters/ETG Alumni Newsletter 08_2025.pdf` | 2025-08-01 | Andy King, Kelsey Newman (Schlitz). |
 
 `Shipped` dates are build/publish dates derived from git and file timestamps.
 
-### Open question on the back catalog
+### Back catalog — resolved
 
-- **Oct 2025** — the June README referenced a `{{PDF_OCT_2025}}` hub placeholder, but no Oct 2025 issue appears in `src/lib/newsletters.ts` and no matching PDF is in `newsletters/`. The untitled `newsletters/ETG Newsletter.pdf` may be it. **Confirm and add a row, or delete this note.**
+**Oct 2025 confirmed (2026-08-12).** It was the untitled `newsletters/ETG Newsletter.pdf`, now
+renamed `ETG Newsletter 10_2025.pdf` to match the others. Confirmed from the Gmail thread "ETG
+Midwest Alumni Newsletter": Tina Gould sent the Google Doc on 2025-10-07, Pernell converted it to
+PDF and posted it 2025-10-08, Doug replied "Love the headline!!!" on 2025-10-09.
+
+The title `Where Champions Go Next` comes from the pre-June home hub listing, not from the PDF
+itself — the document has no headline of its own. Treat it as the site's title for the issue rather
+than something printed on the newsletter.
+
+With Oct 2025 in place, the every-other-month pattern is unbroken from Aug 2025 forward.
+
+**Known gap:** Oct 2025 is not in `src/lib/newsletters.ts` or `public/newsletters/` in the local
+Next.js app. That app is a parallel build, not the live site, so this does not affect production —
+but the app's archive is missing this issue.
 
 ### Not tracked
 
@@ -46,11 +60,15 @@ capture. Don't add columns for them.
 so next newsletter will be in August."*
 
 ```
-2025:  Aug ●   Sep ○   Oct ?   Nov ○   Dec ●
+2025:  Aug ●   Sep ○   Oct ●   Nov ○   Dec ●
 2026:  Jan ○   Feb ●   Mar ○   Apr ●   May ○   Jun ●   Jul ○   Aug ●   Sep ○   Oct →
 ```
 
-`●` issue · `○` off month by design · `?` unconfirmed
+`●` issue · `○` off month by design · `→` next expected
+
+Eight consecutive on-cycle issues, no misses. Doug independently described the cadence the same way
+back on 2025-08-20 — *"we wouldn't have to bug you every other month which is how often these"* —
+almost a year before confirming it again in June 2026.
 
 The odd months are not gaps or misses — they're the off months. Within that rhythm the exact timing
 still floats, because it depends on when Doug finishes collecting spotlight responses. He typically
