@@ -295,6 +295,23 @@ Template to copy:
 
 ---
 
+### October 2026
+
+- **What changed:** Phase 0 was written down for the first time — see `oct-2026/PROCESS-TRACE.md`
+  (39+ steps, intake to live). Distribution moved: Claude creates the Resend draft (Test-Pernell),
+  Pernell sends Doug a **Resend test** for approval, Doug emails the web link to his Google Group.
+  Photos now come out of Gmail with no manual step: Chrome "Add to Drive" → Drive connector →
+  decode → strip EXIF/GPS → R2. A 3-part issue fits April's 3 embeds, so no new embeds were needed.
+- **What broke:** (1) a pre-upload `curl` of the final R2 URL cached a 404 at the Omaha edge for 4h
+  — re-uploaded under a new key; (2) `publish_site` now rejects hostnames in `customDomains` — it
+  needs **domain IDs** (`get_site`): `63e19943fb21e908c5e9762b` (www), `63e19943fb21e9dea7e9762a`
+  (apex); (3) failed publish calls still count toward the once-per-minute limit.
+- **Time taken:** Webflow leg about 5 minutes, plus waiting out the publish rate limit.
+- **New scar tissue:** #8 and #9 below are worth adding if they recur: never probe the final CDN
+  URL before upload; publish with domain IDs.
+
+---
+
 ### August 2026
 
 - **What changed:** Everything about the Webflow leg. Webflow MCP 2.0.1 made Code Embed content

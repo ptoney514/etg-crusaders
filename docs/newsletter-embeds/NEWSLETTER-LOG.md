@@ -12,6 +12,7 @@ Companion docs:
 
 | Issue | Title | Format | Live URL / file | Shipped | Notes |
 |-------|-------|--------|-----------------|---------|-------|
+| Oct 2026 | A Season of Fresh Beginnings | Web article (3 embeds) | [`/members/news/october-2026-a-season-of-fresh-beginnings`](https://etgmidwest.com/members/news/october-2026-a-season-of-fresh-beginnings) | 2026-10-12 | Single spotlight: Amber Quinn (Sims), 2006 (Bellevue East, Concordia). Doug approved a Resend test 10-10; he emails the link to his Google Group. First issue logged step by step in `oct-2026/PROCESS-TRACE.md`. |
 | Aug 2026 | Another Summer in the Books | Web article (6 embeds) | [`/members/news/august-2026-another-summer-in-the-books`](https://etgmidwest.com/members/news/august-2026-another-summer-in-the-books) | 2026-08-12 | 15U girls won the Adidas 3SSB National Championship — the issue's lede. Spotlights: Nick Ferrarini (Washburn), Brooke Delano (Roncalli Catholic). First issue built entirely over the Data API with the Designer closed. |
 | Jun 2026 | Alumni Spotlight + Summer Update | Web article (7 embeds) | [`/members/news/june-2026-summer-is-here-alumni-spotlight`](https://etgmidwest.com/members/news/june-2026-summer-is-here-alumni-spotlight) | 2026-06-03 | Jadin Booth (Samford) + Courtney Farmer (Rockhurst). Longest issue to date. Hit every Webflow MCP scar — see playbook. |
 | Apr 2026 | Dinner Bash + Alumni Spotlight | Web article (3 embeds) | [`/members/news/april-2026-dinner-bash-and-alumni-spotlight`](https://etgmidwest.com/members/news/april-2026-dinner-bash-and-alumni-spotlight) | 2026-04-08 | First web-article issue; canonical template we duplicate from. |
@@ -61,7 +62,7 @@ so next newsletter will be in August."*
 
 ```
 2025:  Aug ●   Sep ○   Oct ●   Nov ○   Dec ●
-2026:  Jan ○   Feb ●   Mar ○   Apr ●   May ○   Jun ●   Jul ○   Aug ●   Sep ○   Oct →
+2026:  Jan ○   Feb ●   Mar ○   Apr ●   May ○   Jun ●   Jul ○   Aug ●   Sep ○   Oct ●   Nov ○   Dec →
 ```
 
 `●` issue · `○` off month by design · `→` next expected
