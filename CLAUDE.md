@@ -18,6 +18,9 @@ when he has it, usually the last week of the prior month, sometimes in pieces. D
 Doug sends content  →  Claude drafts stories  →  build + send in Resend  →  Webflow via MCP
 ```
 
+**Run it with the `etg-newsletter` skill** (`.claude/skills/etg-newsletter/`). It covers intake through
+ship records, with the review gates and helper scripts. Built from `oct-2026/PROCESS-TRACE.md`.
+
 Three places, each with a distinct job:
 
 | What | Where | Use it for |
@@ -47,8 +50,9 @@ went live.
 - **Designer MCP calls need a foregrounded Designer tab** or they fail with "Unable to connect to
   Webflow Designer." `data_*` REST calls work regardless — but **`asset_tool` is a Designer tool
   despite the name** and does need the Designer open.
-- **No email engagement stats exist.** Doug distributes by sending out a link, not a Resend
-  broadcast — there are no open rates or recipient counts anywhere. Don't propose tracking them.
+- **Distribution (since Oct 2026):** Claude creates a Resend *draft* (Test-Pernell). Pernell sends
+  Doug a test for approval and does any real send himself. Doug also emails the live article link
+  to his Google Group. Pernell owns the Resend contacts — never import, edit, or send.
 
 ## Conventions
 
