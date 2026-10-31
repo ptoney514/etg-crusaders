@@ -2,6 +2,9 @@ name = "etg-newsletter-signup"
 main = "src/index.js"
 compatibility_date = "2025-04-01"
 
-# RESEND_API_KEY is set as an encrypted secret via:
-#   wrangler secret put RESEND_API_KEY
-# It is NEVER stored in this file.
+# Signups go to the shared newsletter service (ptoney514/newsletter, Worker
+# "newsletter") through a Service Binding. No API key is needed.
+[[services]]
+binding = "NEWSLETTER"
+service = "newsletter"
+entrypoint = "NewsletterService"

@@ -1,82 +1,43 @@
 # ETG Newsletter Signup Worker
 
-A tiny Cloudflare Worker that sits between the **Stay Updated** form on the ETG Midwest Webflow site and the **Resend Audiences API**. The Resend API key is held server-side as an encrypted Worker secret so it is never exposed in the page source.
+A tiny Cloudflare Worker that sits between the **Stay Updated** form on the ETG Midwest Webflow site and the shared **newsletter service** ([ptoney514/newsletter](https://github.com/ptoney514/newsletter), Worker `newsletter`). Signups land on that service's `etg-alumni` list.
+
+Until 2026-10-31 this Worker added contacts to a Resend Audience. That needed Resend's Marketing plan, which has been dropped; newsletters now go out through the newsletter service instead.
 
 ## What it does
 
 1. Receives a `POST` from the form on `https://etgmidwest.com` (and the Webflow staging subdomain).
 2. Validates the email address server-side.
-3. Calls `POST https://api.resend.com/audiences/3e429105-40be-4190-9856-bb5471020695/contacts` with the email.
-4. Returns a JSON response that the front-end uses to show success / error UI.
-5. Treats "already subscribed" as a success so users never see a confusing error.
+3. Calls `env.NEWSLETTER.subscribe({ list: "etg-alumni", email, source: "etgmidwest.com" })` through a Service Binding. The call stays inside Cloudflare: no public endpoint, no API key.
+4. Returns a JSON response that the front-end uses to show success / error UI. Signing up twice is a success, not an error.
 
-## Setup (one time)
+The form contract (field `Email`, JSON `{ ok, message }` / `{ error }`) is unchanged, so the Webflow embed needs no edits.
 
-You'll need a free Cloudflare account and Node 18+ installed locally.
+## Deploy
 
-### 1. Install Wrangler (Cloudflare's CLI)
+Both Workers must be in the same Cloudflare account, and `newsletter` must already be deployed (it is).
 
 ```bash
 cd workers/etg-newsletter-signup
-npm install -g wrangler
+npx wrangler deploy
 ```
 
-### 2. Authenticate
+The old `RESEND_API_KEY` secret is no longer used. Remove it once the new version works:
 
 ```bash
-wrangler login
+npx wrangler secret delete RESEND_API_KEY
 ```
 
-This opens your browser, you sign in to Cloudflare, click Allow, and your terminal is authenticated. One-time only.
+## Test it
 
-### 3. Set the Resend API key as a Worker secret
+On the live site, type an email and click Subscribe. You should see "✓ Subscribed!". Then, from the newsletter repo:
 
 ```bash
-wrangler secret put RESEND_API_KEY
+npm run nl -- lists     # etg-alumni's subscribed count goes up by one
 ```
-
-When prompted, paste your `re_...` Resend API key and hit enter. The key is encrypted and stored in Cloudflare's secret store. **It never gets committed to git, never appears in any file, and never reaches the browser.**
-
-### 4. Deploy
-
-```bash
-wrangler deploy
-```
-
-Wrangler will print the live URL of the worker, something like:
-
-```
-https://etg-newsletter-signup.<your-subdomain>.workers.dev
-```
-
-**Copy this URL** — you'll paste it into the home page Code Embed in the next step.
-
-### 5. Wire the form to the worker
-
-Open `docs/newsletter-embeds/home-newsletter-hub.html`, find the line:
-
-```html
-<form id="etg-signup" data-endpoint="REPLACE_WITH_WORKER_URL">
-```
-
-Replace `REPLACE_WITH_WORKER_URL` with the URL Wrangler printed in step 4. Save.
-
-Then in Webflow Designer, open the home page Code Embed → select all → paste the updated file → Save & Close → Publish.
-
-### 6. Test it
-
-On the live site, type your email and click Subscribe. You should see "✓ Subscribed!" in the form. Then check the audience in Resend (`https://resend.com/audiences/3e429105-40be-4190-9856-bb5471020695`) and confirm your address is there.
-
-## Updating the worker later
-
-Edit `src/index.js`, then re-run `wrangler deploy`. No need to touch the Webflow embed unless the URL changes.
 
 ## If something breaks
 
 - **CORS errors in browser console** → check `ALLOWED_ORIGINS` in `src/index.js` includes the domain you're testing from. Update + redeploy.
-- **500 "Server not configured"** → the `RESEND_API_KEY` secret was never set. Re-run step 3.
-- **Form submissions land in Resend but the form UI shows an error** → likely a JSON parsing issue in the front-end JS. Check the Network tab in DevTools.
-
-## Why a Worker instead of pasting the key into the embed
-
-If the Resend API key were in the Code Embed, anyone right-clicking → View Source on `etgmidwest.com` could grab it and use it to send email from your account. Worker secrets keep the key server-side. The Worker is also free up to 100K requests/day on the Cloudflare free tier — way more than this site will ever need.
+- **500 "Server not configured"** → the `NEWSLETTER` Service Binding is missing. Check `wrangler.toml` and redeploy.
+- **502 "Something went wrong"** → the newsletter service failed or doesn't have an `etg-alumni` list. Check `npx wrangler tail etg-newsletter-signup` and `npm run nl -- lists` in the newsletter repo.
