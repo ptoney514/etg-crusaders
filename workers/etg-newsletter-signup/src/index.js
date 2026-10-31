@@ -2,20 +2,22 @@
  * ETG Midwest — Newsletter Signup Worker
  *
  * Receives POSTs from the Stay Updated form on etgmidwest.com,
- * validates the email, and adds the contact to a Resend Audience.
+ * validates the email, and adds the contact to the "etg-alumni" list in the
+ * shared newsletter service (ptoney514/newsletter).
  *
- * The Resend API key is held as an encrypted Worker secret (RESEND_API_KEY)
- * and is never exposed to the browser.
+ * The call goes through a Service Binding (env.NEWSLETTER), so it stays inside
+ * Cloudflare: no public endpoint, no API key, nothing exposed to the browser.
  *
  * Endpoint: POST /
  * Body:     application/x-www-form-urlencoded with field "Email"
  *           OR application/json { "email": "..." }
  * Returns:  200 { ok: true } on success or "already subscribed"
  *           400 { error: "..." } on bad input
- *           500 { error: "..." } on Resend API failure
+ *           502 { error: "..." } when the newsletter service fails
  */
 
-const RESEND_AUDIENCE_ID = "3e429105-40be-4190-9856-bb5471020695";
+const NEWSLETTER_LIST = "etg-alumni";
+const SIGNUP_SOURCE = "etgmidwest.com";
 
 const ALLOWED_ORIGINS = new Set([
   "https://etgmidwest.com",
@@ -81,7 +83,7 @@ export default {
       return jsonResponse({ error: "Method not allowed" }, 405, origin);
     }
 
-    if (!env.RESEND_API_KEY) {
+    if (!env.NEWSLETTER) {
       return jsonResponse({ error: "Server not configured" }, 500, origin);
     }
 
@@ -90,33 +92,28 @@ export default {
       return jsonResponse({ error: "Please enter a valid email address." }, 400, origin);
     }
 
-    // Add the contact to the Resend audience
-    const resendUrl = `https://api.resend.com/audiences/${RESEND_AUDIENCE_ID}/contacts`;
-    const resendResponse = await fetch(resendUrl, {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${env.RESEND_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+    // Signing up again after unsubscribing re-subscribes, which is what the
+    // person asked for. A bounced or spam-reported address stays suppressed.
+    let result;
+    try {
+      result = await env.NEWSLETTER.subscribe({
+        list: NEWSLETTER_LIST,
         email: email.trim().toLowerCase(),
-        unsubscribed: false,
-      }),
-    });
+        source: SIGNUP_SOURCE,
+      });
+    } catch (err) {
+      console.error("Newsletter service error", err);
+      return jsonResponse({ error: "Something went wrong. Please try again." }, 502, origin);
+    }
 
-    // Resend returns 200 for new contacts and 200/422 for duplicates depending
-    // on plan. Treat duplicates as success so the form UX doesn't punish people.
-    if (resendResponse.ok) {
+    if (result && result.ok) {
       return jsonResponse({ ok: true, message: "Subscribed!" }, 200, origin);
     }
-
-    const errorBody = await resendResponse.json().catch(() => ({}));
-    const message = (errorBody && errorBody.message) || "";
-    if (message.toLowerCase().includes("already") || resendResponse.status === 422) {
-      return jsonResponse({ ok: true, message: "You're already on the list." }, 200, origin);
+    if (result && result.error === "invalid email") {
+      return jsonResponse({ error: "Please enter a valid email address." }, 400, origin);
     }
 
-    console.error("Resend API error", resendResponse.status, errorBody);
+    console.error("Newsletter service refused signup", result);
     return jsonResponse({ error: "Something went wrong. Please try again." }, 502, origin);
   },
 };
